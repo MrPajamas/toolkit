@@ -1,0 +1,30 @@
+
+<view class="container" style="background-image:url({{background}})">
+    <view class="match">
+        <view class="team" bindtap="teamMatch" style="background-image:url({{team.bg}})">{{team.title}}</view>
+        <view class="self" style="background-image:url({{self.bg}})">{{self.title}}</view>
+    </view>
+    <view class="rank" style="background-image:url({{rank.bg}})">{{rank.title}}</view>
+</view>
+<!-- 输入战队名弹窗 -->
+<view class="createTeamFrame" hidden="{{!showCreateTeamFrame}}" style="background-image:url({{teamFrame.createTeamFrame}})">
+    <view class="title">{{teamFrame.title}}</view>
+    <view class="name">
+        <input maxlength="5" bindinput="getTeamName" type="text" value="{{teamName}}" />
+        <view>战队</view>
+    </view>
+    <view class="text">{{teamFrame.text}}</view>
+    <view class="teamCertain" bindtap="teamCertain" style="background-image:url({{teamFrame.certain}})">确定</view>
+</view>
+
+
+
+<view class="blackCurtain" hidden="{{!showCreateTeamFrame}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />
+
+
+
+
+
+

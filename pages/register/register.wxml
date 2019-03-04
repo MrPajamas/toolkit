@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="banner">
+        <image class="title" src="{{title}}" />
+    </view>
+    <view class="grayLine"></view>
+    <view class="form">
+        <view class="name">
+            <text class="title">姓名</text>
+            <input type="text" disabled="{{nameDisable}}" bindinput="nameChange" />
+        </view>
+        <view class="tel">
+            <text class="title">手机</text>
+            <input type="text" disabled="{{telDisable}}" bindinput="telChange" />
+        </view>
+        <view class="store" wx:if="{{store}}" bindchange="storePickerChange">
+            <view class="title">门店名</view>
+            <view class="value">{{store}}</view>
+        </view>
+    </view>
+    <view class="privacy">
+        <view class="solid" bindtap="{{!store ? 'confirmPrivacy' : ''}}">
+            <view class="tof">
+                <image src="{{ privacy ? Ttrue : Tfalse}}" />
+            </view>
+            <view>{{txt1}}</view>
+        </view>
+        <view class="nothingness">
+            <view>{{txt2}}</view>
+            <view>{{txt3}}</view>
+            <view class="txt4">{{txt4}}</view>
+        </view>
+    </view>
+    <button class="binding" wx:if="{{name && tel && store && privacy}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        绑定
+    </button>
+    <button class="binding" wx:else bindtap="getStore">确认</button>
+</view>

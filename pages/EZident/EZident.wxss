@@ -1,0 +1,130 @@
+image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-size: 100%;
+    border: 1rpx;
+    padding-bottom: 100rpx;
+}
+
+.frame {
+    overflow: hidden;
+    margin: 267rpx auto 0;
+    width: 712rpx;
+    height: 757rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.title {
+    font-size: 36rpx;
+    text-align: center;
+    margin-top: 35rpx;
+}
+
+.main {
+    width: 600rpx;
+    margin: 50rpx auto 0;
+}
+
+.text {
+    font-size: 24rpx;
+    margin-bottom: 30rpx;
+    line-height: 1.3;
+}
+
+.text:nth-of-type(2) {
+    margin: 0;
+}
+
+.link {
+    color: #2099d7;
+    font-size: 24rpx;
+}
+
+.email,
+.ident {
+    width: 488rpx;
+    height: 62rpx;
+    border: 1rpx solid #88d3f5;
+    margin: 20rpx auto 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ident {
+    height: 200rpx;
+}
+
+.tit {
+    white-space: nowrap;
+    font-size: 24rpx;
+    margin: 0 14rpx;
+    font-weight: bold;
+}
+
+.sp {
+    border-right: 1rpx solid #88d3f5;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100rpx;
+}
+
+.identBg {
+    width: 79rpx;
+    height: 90rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    line-height: 90rpx;
+    padding-left: 14rpx;
+    box-sizing: border-box;
+}
+
+.right {
+    width: 100%;
+    height: 100%;
+    font-size: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #868686;
+}
+
+.add {
+    width: 127rpx;
+    height: 127rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#email,
+#ident {
+    font-size: 20rpx;
+    flex: 1;
+}
+
+.submit {
+    width: 283rpx;
+    height: 73rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 36rpx;
+    line-height: 63rpx;
+    text-align: center;
+    margin: 10rpx auto 0;
+}

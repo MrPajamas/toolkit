@@ -1,0 +1,63 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="teamMember" style="background-image:url({{teamMemberBg}})">
+        <view class="title">{{TeamName}}</view>
+        <view class="memberBox">
+            <view class="teamMember_item" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="icon">
+                    <image src="{{item.AvataUrl}}" />
+                </view>
+                <view class="data">
+                    <view>{{item.TrueName}}</view>
+                    <view>{{item.Integral}}{{item.IntegralUnit}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="buttons">
+        <button hover-class="none" wx:if="{{operation == 0}}" class="invitation" open-type="share" style="background-image:url({{invitation}})">
+            邀请好友
+        </button>
+        <button hover-class="none" wx:elif="{{operation == 1}}" bindtap="confirmTeam" class="invitation" style="background-image:url({{invitation}})">
+            确定组队
+        </button>
+        <button hover-class="none" wx:if="{{(operation != 2) && IsDissolve}}" class="dissolve" bindtap="doq" style="background-image:url({{invitation}})">
+            解散
+        </button>
+        <button hover-class="none" wx:if="{{(operation != 2) && IsQuit}}" class="dissolve" bindtap="doq" style="background-image:url({{invitation}})">
+            退出
+        </button>
+        <view class="rankAndQuestion" wx:if="{{operation == 2}}">
+            <view data-url="{{GoRank}}" bindtap='navClick' hover-class="none" class="rank" style="background-image:url({{invitation}})">
+                查看排行榜
+            </view>
+            <view data-url="{{goFight}}" bindtap='navClick' hover-class="none" class="question" style="background-image:url({{invitation}})">
+                立即作战
+            </view>
+        </view>
+    </view>
+    <!-- 创建成功 -->
+    <view class="teamCreated" hidden="{{!showTeamCreated}}" style="background-image:url({{teamCreated}})">
+        <view class="text">恭喜您！组队成功！</view>
+        <view class="close" bindtap="closeTeamCreated" style="background-image:url({{certain}})">
+            我知道啦
+        </view>
+    </view>
+</view>
+<view class="rule" bindtap="showRule" style="background-image:url({{ruleBg}})">规则</view>
+<view class="ruleFrame" hidden="{{!showRuleFrame}}" style="background-image:url({{ruleFrame}})">
+    <view class="ruleTitle">{{rule.ruleTitle}}</view>
+    <view class="main">
+        <view class="general bold">{{rule.title}}</view>
+        <view class="general" wx:for="{{rule.list}}" wx:key="{{index}}">
+            <text class="bold">{{item.num}}</text>
+            {{item.content}}
+        </view>
+        <view class="bottomText">{{rule.title4}}</view>
+    </view>
+    <view class="ruleClose" bindtap="ruleClose">
+        <image src="{{close}}" />
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!showTeamCreated}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

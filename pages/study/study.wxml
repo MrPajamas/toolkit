@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="banner" bindtap='navClick' data-url="/pages/match/match" hover-class="none" data-opentype="redirect">
+        <image src="{{banner}}" mode="widthFix" />
+    </view>
+    <view class="nav"  bindtap="notOpen">
+        <view class="nav-container">
+            <view class="nav_item" hover-class="none" url="{{item.url}}" wx:for="{{listIcon}}" wx:key="{{index}}">
+                <image src="{{item.icon}}" />
+                <text>{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+ 
+    <!-- 产品 素材宝典 -->
+    <view class="part1" bindtap="notOpen">
+        <view class="title">
+            <view>{{product.Title}}</view>
+            <view class="arrow" url="">
+                <image src="{{product.Icon}}" />
+            </view>
+        </view>
+        <view class="content">
+            <view class="content_item" wx:for="{{product.list}}" wx:key="index">
+                <view url="{{item.url}}" hover-class="none">
+                    <image src="{{item.img}}" />
+                </view>
+                <view>{{item.text}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="part2" catchtap="notOpen">
+        <view class="title">
+            <view>{{sucai.Title}}</view>
+            <view class="arrow" url="">
+                <image src="{{sucai.Icon}}" />
+            </view>
+        </view>
+        <view class="content">
+            <view hover-class="none" url="{{item.url}}" class="content_item" wx:for="{{sucai.list}}" wx:key="index">
+                <image src="{{item.img}}" />
+                <view>{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

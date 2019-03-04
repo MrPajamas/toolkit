@@ -1,0 +1,23 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="list" style="background-image:url({{list.listBg}})">
+        <block wx:for="{{list.listData}}" wx:key="index">
+            <!-- 开放 -->
+            <view class="list_item" bindtap='navClick' wx:if="{{item.accessible}}" hover-class="none" data-url="{{item.url}}">
+                <image src="{{item.icon}}" />
+                <view class="text">{{item.text}}</view>
+            </view>
+            <!-- 未开放 -->
+            <view class="list_item" wx:else bindtap="notOpen">
+                <image src="{{item.icon}}" />
+                <view class="text">{{item.text}}</view>
+            </view>
+        </block>
+        <view bindtap="navClick" class="circle" wx:if="{{list.circle.accessible}}" hover-class="none" data-url="{{list.circle.url}}" style="background-image:url({{list.circle.circleBg}})">
+           
+        </view>
+        <view bindtap="navClick" class="circle" wx:else bindtap="notOpen" style="background-image:url({{list.circle.circleBg}})">
+            <text>{{list.circle.text01}}</text>
+            <text>{{list.circle.text02}}</text>
+        </view>
+    </view>
+</view>

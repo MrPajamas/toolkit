@@ -1,0 +1,130 @@
+image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 100rpx;
+}
+
+.buttons {
+    width: 695rpx;
+    margin: 430rpx auto 0;
+}
+
+.buttons_item {
+    width: 695rpx;
+    height: 159rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+
+.buttons_item_icon {
+    width: 75rpx;
+    height: 75rpx;
+    position: absolute;
+    left: 60rpx;
+    top: 30rpx;
+}
+
+.buttons_item_text{
+    font-size: 36rpx;
+    color: #fff;
+    flex: 1;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 42rpx;
+}
+
+.rule{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 71rpx;
+    height: 149rpx;
+    position: absolute;
+    right: 0;
+    top: 23%;
+    transform: translateY(-50%);
+    font-size: 25rpx;
+    color:#fff;
+    writing-mode: vertical-lr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ruleClose{
+    width: 53rpx;
+    height: 52rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -70rpx;
+}
+.ruleFrame{
+    width: 648rpx;
+    height: auto;
+    background-repeat: no-repeat;
+    padding-bottom: 80rpx;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.ruleFrame .ruleTitle{
+    font-size: 36rpx;
+    text-align: center;
+    margin-top: 9%;
+}
+.main{
+    margin-top: 80rpx;
+    padding-left: 50rpx;
+    width: 540rpx;
+}
+.general{
+    font-size: 24rpx;
+}
+.bold{
+    font-weight: bold;
+}
+.r4{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 35rpx;
+}
+.r4 .line{
+    width: 15rpx;
+    height: 144rpx;
+    margin-right: 20rpx;
+    margin-top: 3rpx;
+}
+.r4 .right{
+    box-sizing: border-box;
+    padding-top: 3rpx;
+}
+.r4 .right .general{
+    /* margin-bottom: 3rpx; */
+    line-height: 36rpx;
+}
+.bottomText{
+    margin-top: 30rpx;
+    font-size: 20rpx;
+    color:#545454;
+}
+.yellow{
+    color: yellow;
+}

@@ -1,0 +1,20 @@
+<view class="container">
+    <video src="{{fileurl}}" controls bindplay="videoStart" bindended="videoEnd"></video>
+    <view class="data">
+        <view class="title">视频名称：{{title}}</view>
+        <view class="line"></view>
+        <view class="douyinid">抖音ID：{{douyinid}}</view>
+    </view>
+    <view class="laud" bindtap="laud">
+        <view class="heart">
+            <image src="{{ ispraise ? redHeart : whiteHeart }}" />
+        </view>
+        <view>点赞 {{praisecnt}}</view>
+    </view>
+    <button open-type="share" class="share">
+        <view class="shareImg">
+            <image src="{{share}}" />
+        </view>
+        <view class="sharetext">分享</view>
+    </button>
+</view>

@@ -1,0 +1,51 @@
+<view class="container">
+    <view class="banner">
+        <image src="{{banner}}" mode="widthFix" />
+        <view class="person">
+            <view class="who">
+                <image src="{{AvataUrl}}" />
+            </view>
+            <view class="data">
+                <view class="name">{{NickName}}</view>
+                <view class="point">
+                    <view class="v">
+                        <image src="{{IntegralIcon}}" />
+                    </view>
+                    <view class="number">{{IntegralCount}}</view>
+                    <view class="text">{{IntegralUnit}}</view>
+                </view>
+            </view>
+        </view>
+        <view data-url="{{signUrl}}" class="signIn" bindtap="goUrl">
+            {{rightBtnTitle}}
+        </view>
+    </view>
+    <view class="menu">
+        <block wx:for="{{listMenu}}" wx:key="{{index}}">
+            <view bindtap="navClick" wx:if="{{item.url}}" class="menu_item" data-url="{{item.url}}">
+                <view class="left">
+                    <view class="icon">
+                        <image src="{{item.icon}}" />
+                    </view>
+                    <view class="title">{{item.title}}</view>
+                </view>
+                <view class="right">
+                    <image src="{{item.arrow}}" />
+                </view>
+            </view>
+            <view url="{{item.url}}" wx:else class="menu_item" bindtap="notOpen">
+                <view class="left">
+                    <view class="icon">
+                        <image src="{{item.icon}}" />
+                    </view>
+                    <view class="title">{{item.title}}</view>
+                </view>
+                <view class="right">
+                    <image src="{{item.arrow}}" />
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

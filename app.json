@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+
+    "pages/register/register",
+
+    "pages/study/study",
+    "pages/mine/mine",
+
+    "pages/myActivities/myActivities",
+
+    "pages/match/match",
+    "pages/waitingTeam/waitingTeam",
+    "pages/isJoinTeam/isJoinTeam",
+    "pages/question/question",
+
+    "pages/rank/rank",
+
+    "pages/personal/personal",
+    "pages/calendar/calendar",
+    "pages/EZident/EZident",
+    "pages/videoWall/videoWall",
+    "pages/upLoadVideo/upLoadVideo",
+    "pages/articleShow/articleShow",
+    "pages/upLoadArticle/upLoadArticle",
+    "pages/videoPlay/videoPlay",
+    "pages/articleContent/articleContent",
+
+    "pages/template/template",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "Microsoft 精英荟",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fff"
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "connectSocket": 100000
+  }
+}

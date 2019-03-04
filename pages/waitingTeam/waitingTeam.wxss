@@ -1,0 +1,256 @@
+image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.teamMember {
+    width: 690rpx;
+    height: 369rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 450rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.teamMember .title {
+    color: #fff;
+    font-size: 36rpx;
+    margin: 52rpx auto 0;
+    text-align: center;
+}
+
+.teamMember .memberBox {
+    width: 575rpx;
+    display: flex;
+    justify-content: space-between;
+    margin: 36rpx auto 0;
+}
+
+.teamMember .teamMember_item {
+    width: 175rpx;
+    height: 190rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1dd0eb;
+    border-radius: 10rpx;
+    border: 1px solid #fff;
+}
+
+.teamMember .teamMember_item .icon {
+    width: 84rpx;
+    height: 84rpx;
+    margin: 10rpx 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.teamMember .teamMember_item .data {
+    width: 100%;
+    font-size: 24rpx;
+    color: #fff;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c4d8e;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.teamMember .teamMember_item .data>view {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.buttons {
+    position: absolute;
+    width: 600rpx;
+    top: 880rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.invitation,
+.dissolve {
+    width: 273rpx;
+    height: 71rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 71rpx;
+    font-size: 36rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+button::after {
+    border: none;
+}
+
+.rankAndQuestion {
+    width: 660rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 36rpx;
+    background-color: transparent;
+}
+
+.rank,
+.question {
+    color: #fff;
+    width: 273rpx;
+    height: 71rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 71rpx;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.teamCreated {
+    width: 690rpx;
+    height: 675rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.teamCreated .text {
+    position: absolute;
+    bottom: 180rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.teamCreated .close {
+    position: absolute;
+    bottom: 50rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 293rpx;
+    height: 84rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 74rpx;
+}
+
+.rule {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 71rpx;
+    height: 149rpx;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 25rpx;
+    color: #fff;
+    writing-mode: vertical-lr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ruleClose {
+    width: 53rpx;
+    height: 52rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60rpx;
+}
+
+.ruleFrame {
+    width: 648rpx;
+    height: 800rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ruleFrame .ruleTitle {
+    font-size: 36rpx;
+    text-align: center;
+    margin-top: 45rpx;
+}
+
+.main {
+    margin-top: 50rpx;
+    padding-left: 50rpx;
+    width: 540rpx;
+}
+
+.main .general:first-child {
+    margin-bottom: 30rpx;
+}
+
+.general {
+    font-size: 24rpx;
+    line-height: 50rpx;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.r4 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50rpx;
+}
+
+.r4 .line {
+    width: 15rpx;
+    height: 144rpx;
+    margin-right: 20rpx;
+}
+
+.r4 .right .general {
+    margin-bottom: 5rpx;
+}
+
+.bottomText {
+    margin-top: 10rpx;
+    font-size: 20rpx;
+    color: #545454;
+}

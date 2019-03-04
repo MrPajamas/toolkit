@@ -1,0 +1,29 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="teamMember" style="background-image:url({{teamMemberBg}})">
+        <view class="title">{{TeamName}}</view>
+        <view class="memberBox">
+            <view class="teamMember_item" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="icon">
+                    <image src="{{item.AvataUrl}}" />
+                </view>
+                <view class="data">
+                    <view>{{item.TrueName}}</view>
+                    <view>{{item.Integral}}{{item.IntegralUnit}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="buttons">
+        <button hover-class="none" class="invitation" wx:if="{{!IsJoin}}" bindtap="joinTeam" style="background-image:url({{invitation}})">
+            加入战队
+        </button>
+    </view>
+    <!-- 创建成功 -->
+    <view class="teamCreated" hidden="{{!showTeamCreated}}" style="background-image:url({{teamCreated}})">
+        <view class="text">恭喜您！组队成功！</view>
+        <view class="close" bindtap="closeTeamCreated" style="background-image:url({{certain}})">
+            我知道啦
+        </view>
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!showTeamCreated}}"></view>

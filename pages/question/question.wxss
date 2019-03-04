@@ -1,0 +1,316 @@
+image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1rpx solid;
+}
+
+.questionBox {
+    box-sizing: border-box;
+    width: 690rpx;
+    height: 80%;
+    /* background: rgba(255, 255, 255, 0.05); */
+    margin: 450rpx auto 0;
+    color: #fff;
+    padding: 10rpx 0 100rpx 0;
+    margin-bottom: 30rpx;
+}
+.questionBox .grayBg{
+    padding-bottom: 50rpx;
+}
+.questionBox .tips {
+    margin-top: 30rpx;
+    text-align: center;
+    font-size: 24rpx;
+    width: 500rpx;
+    margin: 20rpx auto 10rpx;
+}
+
+.questionBox .lightFrame {
+    /* box-sizing: border-box;
+    margin: 0 auto;
+    width: 666rpx;
+    height: 379rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-left: 50rpx;
+    padding-top: 50rpx; */
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 666rpx;
+    height: auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-left: 50rpx;
+    padding-top: 50rpx;
+    padding: 50rpx 0 50rpx 50rpx;
+}
+
+.questionBox .titleIcon {
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 10rpx;
+}
+
+.questionBox .dayTitle {
+    display: flex;
+    font-size: 36rpx;
+}
+
+.questionBox .question {
+    font-size: 25rpx;
+    margin: 20rpx 0;
+    width: 600rpx;
+}
+
+.questionBox .selections {
+    font-size: 25rpx;
+}
+
+.questionBox .square {
+    width: 31rpx;
+    height: 31rpx;
+}
+
+.questionBox .selections_item {
+    display: flex;
+    margin-bottom: 15rpx;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.questionBox .tag {
+    margin: 0 15rpx;
+}
+
+.questionBox .answer {
+    width: 510rpx;
+}
+
+.questionBox .submit {
+    width: 323rpx;
+    height: 71rpx;
+    font-size: 36rpx;
+    text-align: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    line-height: 71rpx;
+    margin: 40rpx auto 0;
+}
+
+/* 答过题后 */
+
+.questionedBox {
+    box-sizing: border-box;
+    width: 690rpx;
+    /* height: auto; */
+    height: 80%;
+    /* background: rgba(255, 255, 255, 0.05); */
+    /* margin: 450rpx auto 0; */
+    margin: 0 auto;
+    color: #fff;
+    padding-bottom: 20rpx;
+    padding-top: 450rpx;
+}
+.grayBg{
+    background: rgba(255, 255, 255, 0.05);
+    padding-bottom: 100rpx;
+}
+.questionedBox .tips {
+    font-size: 24rpx;
+    width: 500rpx;
+    margin: 20rpx 0 20rpx 36rpx;
+}
+
+.questionedBox .trueOrFalse {
+    display: flex;
+    font-size: 24rpx;
+    margin-left: 36rpx;
+    margin-bottom: 20rpx;
+}
+
+.questionedBox .trueOrFalse .trueSelected,
+.questionedBox .trueOrFalse .falseSelected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.questionedBox .trueOrFalse .trueSelected .trueSelectedIcon,
+.questionedBox .trueOrFalse .falseSelected .falseSelectedIcon {
+    width: 31rpx;
+    height: 31rpx;
+    margin-right: 10rpx;
+}
+
+.questionedBox .lightFrame {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 666rpx;
+    height: auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-left: 50rpx;
+    padding-top: 50rpx;
+    padding: 50rpx 0 50rpx 50rpx;
+}
+
+.questionedBox .titleIcon {
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 10rpx;
+}
+
+.questionedBox .dayTitle {
+    display: flex;
+    font-size: 36rpx;
+}
+
+.questionedBox .question {
+    width: 600rpx;
+    font-size: 25rpx;
+    margin: 20rpx 0;
+}
+
+.questionedBox .selections {
+    font-size: 25rpx;
+}
+
+.questionedBox .square {
+    width: 31rpx;
+    height: 31rpx;
+}
+
+.questionedBox .selections_item {
+    display: flex;
+    margin-bottom: 15rpx;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.questionedBox .tag {
+    margin: 0 15rpx;
+}
+
+.questionedBox .selections_item .answer {
+    width: 510rpx;
+}
+
+.questionedBox .submit {
+    width: 323rpx;
+    height: 71rpx;
+    font-size: 36rpx;
+    text-align: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    line-height: 71rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30rpx;
+}
+
+/* 弹窗 */
+
+.true {
+    width: 696rpx;
+    height: 789rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 100;
+}
+
+.true .content {
+    width: 438rpx;
+    position: absolute;
+    top: 450rpx;
+    font-size: 36rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+}
+
+/* .certain {
+    width: 293rpx;
+    height: 84rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 50rpx auto 0;
+    text-align: center;
+    line-height: 74rpx;
+} */
+
+.false {
+    width: 696rpx;
+    height: 618rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 130rpx;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.false .content {
+    width: 400rpx;
+    position: absolute;
+    top: 230rpx;
+    font-size: 36rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+}
+
+.false .content .title {
+    font-size: 36rpx;
+    margin-bottom: 35rpx;
+}
+
+.false .content .text {
+    font-size: 24rpx;
+    line-height: 38rpx;
+}
+
+.certain {
+    width: 293rpx;
+    height: 84rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* margin: 50rpx auto 0; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -83rpx;
+    text-align: center;
+    line-height: 74rpx;
+    color: #fff;
+
+}
+
+.analysis {
+    font-size: 24rpx;
+    padding-left: 60rpx;
+    padding-right: 25rpx;
+    margin-top: 10rpx;
+}
+
+.analysis>view:first-child {
+    margin-bottom: 10rpx;
+}

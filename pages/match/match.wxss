@@ -1,0 +1,118 @@
+image{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.match{
+    width: 665rpx;
+    height: 100rpx;
+    position: absolute;
+    top: 720rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.team,.self{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-size: 40rpx;
+    line-height: 118rpx;
+    color: #fff;
+}
+.team{
+    width: 298rpx;
+    height: 118rpx;
+    margin-top: 31rpx;
+    padding-bottom: 10rpx;
+    text-align: center;
+}
+.self{
+    width: 310rpx;
+    height: 117rpx;
+    padding-top: 8rpx;
+    padding-left: 63rpx;
+    box-sizing: border-box;
+}
+.rank{
+    width: 209rpx;
+    height: 65rpx;
+    position: absolute;
+    top: 960rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    line-height: 65rpx;
+    font-size: 30rpx;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.createTeamFrame{
+    width: 614rpx;
+    height: 588rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    color: #fff;
+    font-size: 36rpx;
+}
+.createTeamFrame .title{
+    text-align: center;
+    margin-top: 66rpx;
+    font-weight: bold;
+}
+.createTeamFrame .name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140rpx;
+}
+
+.createTeamFrame .name input{
+    border-bottom: 1px solid #fff;
+    width: 310rpx;
+    text-align: center;
+}
+.createTeamFrame .text{
+    font-size: 24rpx;
+    text-align: center;
+    margin-top: 95rpx;
+}
+
+.createTeamFrame .teamCertain{
+    width: 293rpx;
+    height: 84rpx;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 60rpx auto 0;
+    text-align: center;
+    line-height: 64rpx;
+}
+
+.close{
+    width: 53rpx;
+    height: 52rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100rpx;
+}
+

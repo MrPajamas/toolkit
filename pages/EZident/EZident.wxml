@@ -1,0 +1,35 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="frame" style="background-image:url({{frame}})">
+        <view class="title">EZ 认证 规则</view>
+        <view class="main">
+            <view class="text">
+                在 2019 年 1 月 25 日—2 月 23 日内学习并完成 Surface 新品 Q3 课程认证，上传 EZ 证书到小程序中, 可获得 100 微币，提升个人微币排名，竞争惊喜礼物！
+            </view>
+            <view class="text">复制链接，在网页端 EZ 网站开始你的学习认证吧！</view>
+            <text selectable="{{true}}" class="link">https://expertzone.Microsoft.com/</text>
+            
+                <view class="email" bindtap="focusEmain">
+                    <view class="tit">邮箱:</view>
+                    <input id="email" bindchange="emailChange" value="{{email}}" focus="{{getFocus}}" type="text" placeholder="{{EZP}}" />
+                </view>
+           
+                <view class="ident" >
+                    <view class="tit sp">
+                        <view class="identBg" style="background-image:url({{identBg}})">认证：</view>
+                    </view>
+                    <!-- <input id="ident" disabled="{{true}}" type="text" placeholder="{{FileUrl}}" /> -->
+                    <view class="right">
+                        <view class="add" hidden="{{FileUrl}}" bindtap="chooseImage" style="background-image:url({{add}})"></view>
+                        <view hidden="{{FileUrl}}">从相册选择</view>
+                        <image hidden="{{!FileUrl}}" src="{{FileUrl}}" />
+                    </view>
+                    
+                </view>
+               
+           
+        </view>
+    </view>
+     <view bindtap="submit" class="submit" style="background-image:url({{buttonFrame}})">立即上传</view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

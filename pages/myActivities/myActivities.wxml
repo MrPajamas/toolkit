@@ -1,0 +1,79 @@
+<view class="container">
+    <view class="myActivity">
+        <view class="bigIcon">
+            <image src="{{bigIcon}}" />
+        </view>
+        <view>我的活动</view>
+    </view>
+    <view class="myArticle" wx:if="{{news.Title}}">
+        <view class="title">
+            <view>我的文章</view>
+            <view class="edit" bindtap="articleChange" data-id="{{news.Id}}">
+                <image src="{{change}}" />
+            </view>
+        </view>
+        <view class="artic_item" style="background-image:url({{blueFrame}})">
+            <view class="artic_item_white">
+                <view class="text">
+                    <view class="title nowrap">《{{news.Title}}》</view>
+                    <view class="line"></view>
+                    <view class="bottom">
+                        <view class="who">
+                            <view class="personalIcon">
+                                <image src="{{news.AvataUrl}}" />
+                            </view>
+                            <view class="name">{{news.TrueName}}</view>
+                        </view>
+                        <view class="number">
+                            <view class="laud">
+                                <image src="{{news.IsPraise ? redHeart : grayHeart}}" />
+                            </view>
+                            <view class="num">{{news.PraiseCnt}}</view>
+                        </view>
+                        <view class="more" bindtap="goArticleContent" data-id="{{news.Id}}">
+                            查看详情
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="myEZ" wx:if="{{ez.Id}}">
+        <view class="title">我的 EZ 认证</view>
+        <view hover-class="none" class="buttons_item" bindtap="previewImage">
+            <view class="ezImage">
+                <image src="{{ez.ImageUrl}}" />
+            </view>
+        </view>
+    </view>
+    <view class="myVideo" wx:if="{{douYin.TrueName}}">
+        <view class="title">
+            <view>我的视频</view>
+            <view class="edit" bindtap="videoChange" data-id="{{douYin.Id}}">
+                <image src="{{change}}" />
+            </view>
+        </view>
+        <view class="video_item" style="background-image:url({{videoFrame}})">
+            <view class="video_item_inner">
+                <view class="video" bindtap="goVideoPlay" data-id="{{douYin.Id}}" data-ispraise="{{douYin.IsPraise}}" data-fileurl="{{douYin.FileUrl}}" data-praisecnt="{{douYin.PraiseCnt}}" data-douyinid="{{douYin.DouYinId}}" data-title="{{douYin.Title}}">
+                    <image src="{{douYin.ImageUrl}}" />
+                    <view class="play">
+                        <image src="{{play}}" />
+                    </view>
+                </view>
+                <view class="videoData">
+                    <view class="name">{{douYin.TrueName}}</view>
+                    <view class="laud">
+                        <view class="heart">
+                            <image src="{{douYin.IsPraise ? redHeart : grayHeart }}" />
+                        </view>
+                        <view>点赞 {{douYin.PraiseCnt}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="empty" wx:if="{{ isEmpty }}">暂无数据</view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

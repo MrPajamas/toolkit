@@ -1,0 +1,156 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.1",
+	"appid": "wx3c2d00a51a0459a4",
+	"projectname": "MSDemoToolkit",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
+			"list": [
+				{
+					"id": 0,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "study",
+					"pathName": "pages/study/study",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "match",
+					"pathName": "pages/match/match",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "waitingTeam",
+					"pathName": "pages/waitingTeam/waitingTeam",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "isJoinTeam",
+					"pathName": "pages/isJoinTeam/isJoinTeam",
+					"query": "teamId=a13fb37c-4203-41b0-a951-e5487fbc9ea5"
+				},
+				{
+					"id": -1,
+					"name": "rank",
+					"pathName": "pages/rank/rank",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "question",
+					"pathName": "pages/question/question",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "personal",
+					"pathName": "pages/personal/personal",
+					"query": "teamId=4872fb03-905d-4e83-aa76-d0f9832f1541"
+				},
+				{
+					"id": -1,
+					"name": "calendar",
+					"pathName": "pages/calendar/calendar",
+					"query": "teamId=4872fb03-905d-4e83-aa76-d0f9832f1541"
+				},
+				{
+					"id": -1,
+					"name": "EZident",
+					"pathName": "pages/EZident/EZident",
+					"query": "teamId=4872fb03-905d-4e83-aa76-d0f9832f1541"
+				},
+				{
+					"id": -1,
+					"name": "videoWall",
+					"pathName": "pages/videoWall/videoWall",
+					"query": "teamId=4872fb03-905d-4e83-aa76-d0f9832f1541"
+				},
+				{
+					"id": -1,
+					"name": "upLoadVideo",
+					"pathName": "pages/upLoadVideo/upLoadVideo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "articleShow",
+					"pathName": "pages/articleShow/articleShow",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "upLoadArticle",
+					"pathName": "pages/upLoadArticle/upLoadArticle",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myActivities",
+					"pathName": "pages/myActivities/myActivities",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "videoPlay",
+					"pathName": "pages/videoPlay/videoPlay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "articleContent",
+					"pathName": "pages/articleContent/articleContent",
+					"query": ""
+				}
+			]
+		}
+	}
+}

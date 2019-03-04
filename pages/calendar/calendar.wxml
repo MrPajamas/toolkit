@@ -1,0 +1,67 @@
+<view class="container">
+    <view class="banner" hover-class="none" open-type="redirect">
+        <image src="{{banner}}" mode="widthFix" />
+        <view class="signIn">
+            <view class="signInIcon">
+                <image src="{{signInIcon}}" />
+            </view>
+            <view>已签到</view>
+        </view>
+        <view class="successive">{{tips}}</view>
+    </view>
+    <view class="main">
+        <view class="date">
+            <view class="pre" bindtap="pre">
+                <image src="{{arrow}}" />
+            </view>
+            <view>{{YearMouth}}</view>
+            <view class="next" bindtap="next">
+                <image src="{{arrow}}" />
+            </view>
+        </view>
+        <view class="week">
+            <view class="week_item" wx:for="{{Week}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+        <view class="content">
+            <view class="inexistent" wx:for="{{inexistentList}}" wx:key="{{index}}"></view>
+            <block wx:for="{{list2}}" wx:key="{{index}}">
+                <view class="number" wx:if="{{item}}">{{item}}</view>
+                <view class="number" wx:else>
+                    <view class="red">
+                        <image src="{{red}}" />
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="priseTip">
+        <view class="honeybee">
+            <image src="{{icon}}" />
+        </view>
+        <view class="priseTipText">
+            <view class="priseTipText_title">{{title}}</view>
+            <view>
+                <text>{{txt1}}</text>
+                <text class="blue"> {{txt2}}</text>
+                <text>{{txt4}}</text>
+            </view>
+            <view>{{txt3}}</view>
+        </view>
+    </view>
+</view>
+<view class="checkFrame" hidden="{{!checkFrameShow}}" style="background-image:url({{checkFrame}})">
+    <view class="txt_box">
+        <view class="txt">{{Atitle}}</view>
+        <view class="txt">
+            <text class="txt_num">{{Atxt1}}</text>
+            {{Atxt2}}
+        </view>
+        <view class="txt">{{Atxt3}}</view>
+    </view>
+    <view class="close" bindtap="close">
+        <image src="{{close}}" />
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!checkFrameShow}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

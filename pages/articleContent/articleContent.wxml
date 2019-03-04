@@ -1,0 +1,18 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="title">{{Title}}</view>
+    <text class="content">{{Context}}</text>
+    <!-- <view class="content">{{content}}</view> -->
+    <!-- <rich-text class="content" space="emsp">{{content}}</rich-text> -->
+    <view class="laud" bindtap="laud">
+        <view class="heart">
+            <image src="{{ IsPraise ? redHeart : grayHeart }}" />
+        </view>
+        <view>点赞 {{PraiseCnt}}</view>
+    </view>
+    <button open-type="share" class="share">
+        <view class="shareImg">
+            <image src="{{share}}" />
+        </view>
+        <view class="sharetext">分享</view>
+    </button>
+</view>

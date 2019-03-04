@@ -1,0 +1,46 @@
+<view class="container" style="background-image:url({{background}})">
+    <scroll-view class="articlBox" scroll-y="{{true}}" bindscrolltolower="getMore">
+        <view class="banner">
+            <image src="{{banner}}" />
+        </view>
+        <view class="empty" hidden="{{!empty}}">暂无数据</view>
+        <view class="artic_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{blueFrame}})">
+            <view class="artic_item_white">
+                <view class="text">
+                    <view class="title">《{{item.Title}}》</view>
+                    <view class="line"></view>
+                    <view class="bottom">
+                        <view class="who">
+                            <view class="personalIcon">
+                                <image src="{{item.AvataUrl}}" />
+                            </view>
+                            <view class="name">{{item.TrueName}}</view>
+                        </view>
+                        <view class="number" data-id="{{item.Id}}" data-index="{{index}}">
+                            <view class="laud">
+                                <image src="{{item.IsPraise ? redHeart : grayHeart}}" />
+                            </view>
+                            <view class="num">{{item.PraiseCnt}}</view>
+                        </view>
+                        <view class="more" bindtap="goArticleContent" data-id="{{item.Id}}">
+                            查看详情
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="buttons">
+        <view bindtap="goRank" hover-class="none" class="rank" style="background-image:url({{button}})">
+            查看排行榜
+        </view>
+        <view bindtap="goUpLoadArticle" hover-class="none" wx:if="{{!IsNews}}" class="upload" style="background-image:url({{button}})">
+            我要上传
+        </view>
+        <!-- <button open-type="share" wx:else class="upload" style="background-image:url({{button}})">
+            邀请朋友点赞
+        </button> -->
+    </view>
+</view>
+<import src="../template/template.wxml" />
+<template is="ptabbar" data="{{tabbar,IsRegister,registerUrl}}" />

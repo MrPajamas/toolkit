@@ -1,0 +1,30 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="match">
+        <view class="team" bindtap="teamMatch" style="background-image:url({{leftBtnBackground}})">
+            {{leftBtnTitle}}
+        </view>
+        <view bindtap='navClick' data-opentype="redirect" class="self" data-url="{{selfUrl}}" hover-class="none" style="background-image:url({{rigthBtnBackground}})">
+            {{rigthBtnTitle}}
+        </view>
+    </view>
+    <view data-url="{{goRank}}" bindtap='navClick' hover-class="none" class="rank" style="background-image:url({{centerBtnBackground}})">
+        {{centerBtnTitle}}
+    </view>
+</view>
+<!-- 输入战队名弹窗 -->
+<view class="createTeamFrame" hidden="{{!showCreateTeamFrame}}" style="background-image:url({{CreateTeamBackground}})">
+    <view class="title">{{CreateTeamTitle}}</view>
+    <view class="name">
+        <input bindinput="getTeamName" type="text" value="{{teamName}}" />
+    </view>
+    <view class="text">{{CreateTeamTips}}</view>
+    <view class="teamCertain" bindtap="teamCertain" style="background-image:url({{CreateTeamBtnBackground}})">
+        {{CreateTeamBtn}}
+    </view>
+    <view class="close" bindtap="close">
+        <image src="{{close}}" />
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!showCreateTeamFrame}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

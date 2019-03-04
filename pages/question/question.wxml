@@ -1,0 +1,162 @@
+<view class="container" style="background-image:url({{background}})">
+    <scroll-view class="questionBox" wx:if="{{!answered}}">
+        <view class="grayBg">
+            <view class="tips">
+                <view>{{Tips}}</view>
+            </view>
+            <view class="lightFrame" style="background-image:url({{lightFrame}})">
+                <view class="dayTitle">
+                    <view class="titleIcon">
+                        <image src="{{titleIcon}}" />
+                    </view>
+                    <view class="titleText">每日一题</view>
+                </view>
+                <view class="question">{{Title}}</view>
+                <view class="selections">
+                    <view class="selections_item" bindtap="selectAnswer" data-id="{{item.Id}}" data-index="{{index}}" wx:for="{{listAnswer}}" wx:key="{{index}}">
+                        <view class="square">
+                            <image src="{{index == selectIndex ? correct : square}}" />
+                        </view>
+                        <view class="tag">{{item.Tag}}</view>
+                        <view class="answer">{{item.Context}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="submit" bindtap="submit" style="background-image:url({{submit}})">
+                {{BtnTxt}}
+            </view>
+        </view>
+    </scroll-view>
+    <!-- <view class="questionBox" wx:if="{{!answered}}">
+        <view class="grayBg">
+            <view class="tips">
+                <view>{{Tips}}</view>
+            </view>
+            <view class="lightFrame" style="background-image:url({{lightFrame}})">
+                <view class="dayTitle">
+                    <view class="titleIcon">
+                        <image src="{{titleIcon}}" />
+                    </view>
+                    <view class="titleText">每日一题</view>
+                </view>
+                <view class="question">{{Title}}</view>
+                <view class="selections">
+                    <view class="selections_item" bindtap="selectAnswer" data-id="{{item.Id}}" data-index="{{index}}" wx:for="{{listAnswer}}" wx:key="{{index}}">
+                        <view class="square">
+                            <image src="{{index == selectIndex ? correct : square}}" />
+                        </view>
+                        <view class="tag">{{item.Tag}}</view>
+                        <view class="answer">{{item.Context}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="submit" bindtap="submit" style="background-image:url({{submit}})">
+                {{BtnTxt}}
+            </view>
+        </view>
+    </view> -->
+    <scroll-view class="questionedBox" wx:else>
+        <view class="grayBg">
+            <view class="tips">本周已答 {{weekWinCnt + weekFailCnt}} 题</view>
+            <view class="trueOrFalse">
+                <view class="trueSelected">
+                    <view class="trueSelectedIcon">
+                        <image src="{{correct}}" />
+                    </view>
+                    <view>{{weekWinCnt}}</view>
+                </view>
+                <view class="falseSelected">
+                    <view class="falseSelectedIcon">
+                        <image src="{{incorrect}}" />
+                    </view>
+                    <view>{{weekFailCnt}}</view>
+                </view>
+            </view>
+            <view class="lightFrame" style="background-image:url({{lightFrame}})">
+                <view class="dayTitle">
+                    <view class="titleIcon">
+                        <image src="{{titleIcon}}" />
+                    </view>
+                    <view class="titleText">每日一题</view>
+                </view>
+                <view class="question">{{Title}}</view>
+                <view class="selections">
+                    <view class="selections_item" data-id="{{item.Id}}" data-index="{{index}}" wx:for="{{listAnswer}}" wx:key="{{index}}">
+                        <view class="square">
+                            <image src="{{item.IsRightKey ? correct : incorrect}}" />
+                        </view>
+                        <view class="tag">{{item.Tag}}</view>
+                        <view class="answer" style="color:{{item.Selected ? 'yellow' : '#fff'}}">
+                            {{item.Context}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="analysis">
+                <view>{{rigthAnswer}}</view>
+                <view>{{rigthRemark}}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- <view class="questionedBox" wx:else>
+        <view class="tips">本周已答 {{weekWinCnt + weekFailCnt}} 题</view>
+        <view class="trueOrFalse">
+            <view class="trueSelected">
+                <view class="trueSelectedIcon">
+                    <image src="{{correct}}" />
+                </view>
+                <view>{{weekWinCnt}}</view>
+            </view>
+            <view class="falseSelected">
+                <view class="falseSelectedIcon">
+                    <image src="{{incorrect}}" />
+                </view>
+                <view>{{weekFailCnt}}</view>
+            </view>
+        </view>
+        <view class="lightFrame" style="background-image:url({{lightFrame}})">
+            <view class="dayTitle">
+                <view class="titleIcon">
+                    <image src="{{titleIcon}}" />
+                </view>
+                <view class="titleText">每日一题</view>
+            </view>
+            <view class="question">{{Title}}</view>
+            <view class="selections">
+                <view class="selections_item" data-id="{{item.Id}}" data-index="{{index}}" wx:for="{{listAnswer}}" wx:key="{{index}}">
+                    <view class="square">
+                        <image src="{{item.IsRightKey ? correct : incorrect}}" />
+                    </view>
+                    <view class="tag">{{item.Tag}}</view>
+                    <view class="answer" style="color:{{item.Selected ? 'yellow' : '#fff'}}">
+                        {{item.Context}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="analysis">
+            <view>{{rigthAnswer}}</view>
+            <view>{{rigthRemark}}</view>
+        </view>
+    </view> -->
+</view>
+<view class="true" hidden="{{!trueFrame}}" style="background-image:url({{fTrue}})">
+    <view class="content">
+        <view class="text">{{trueFrameContent.Title}}</view>
+    </view>
+    <view class="certain" bindtap="iKnow" style="background-image:url({{certain}})">
+        {{trueFrameContent.BtnTxt}}
+    </view>
+</view>
+<view class="false" hidden="{{!falseFrame}}" style="background-image:url({{fFalse}})">
+    <view class="content">
+        <view class="title">{{falseFrameContent.Title}}</view>
+        <view class="text" wx:for="{{falseFrameContent.list}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view class="certain" bindtap="iKnow" style="background-image:url({{certain}})">
+        {{falseFrameContent.BtnTxt}}
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!falseFrame && !trueFrame}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

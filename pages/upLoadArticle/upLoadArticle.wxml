@@ -1,0 +1,36 @@
+<view class="container">
+    <view class="general">
+        <view class="icon">
+            <image src="{{list[0].icon}}" />
+        </view>
+        <view class="text">{{list[0].title}}</view>
+        <input class="input" value="{{Title}}" type="text" placeholder="(最多20个字符)" maxlength="20" bindinput="titleChange" />
+    </view>
+    <view class="general article">
+        <view class="icon">
+            <image src="{{list[1].icon}}" />
+        </view>
+        <view class="text">{{list[1].title}}</view>
+    </view>
+    <view class="content" bindtap="{{autoFocus}}">
+        <textarea class="textarea"  hidden="{{confirmFrameShow}}" value="{{Context}}" focus="{{focus}}" bindinput="contentChange" maxlength="-1" />
+    </view>
+    <view class="line"></view>
+    <view class="upLoad" bindtap="upLoadVideo">{{changeOr}}</view>
+</view>
+<view class="confirmFrame" hidden="{{!confirmFrameShow}}" style="background-image:url({{confirmFrame}})">
+    <view class="confirmFrame_content">
+        <view class="txt">{{confirmFrame_content1}}</view>
+        <view class="txt">{{confirmFrame_content2}}</view>
+    </view>
+    <view class="yesOrNo">
+        <view class="yes" bindtap="yes" style="background-image:url({{yesOrNo}})">是</view>
+        <view class="no" bindtap="cancle" style="background-image:url({{yesOrNo}})">否</view>
+    </view>
+    <view class="close" bindtap="cancle">
+        <image src="{{close}}" />
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!confirmFrameShow}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

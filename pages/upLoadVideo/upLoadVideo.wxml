@@ -1,0 +1,55 @@
+<view class="container">
+    <view class="general">
+        <view class="icon">
+            <image src="{{list[0].icon}}" />
+        </view>
+        <view class="text">{{list[0].title}}</view>
+        <input type="text" class="titleInput" value="{{Title}}" bindchange="titleChange" maxlength="20" placeholder="(最多20个字符)" />
+    </view>
+    <view class="general">
+        <view class="icon">
+            <image src="{{list[1].icon}}" />
+        </view>
+        <view class="text">{{list[1].title}}</view>
+        <input type="text" maxlength="15" value="{{id}}" bindchange="idChange" />
+    </view>
+    <view class="general">
+        <view class="icon">
+            <image src="{{list[2].icon}}" />
+        </view>
+        <view class="text">{{list[2].title}}</view>
+        <input type="text" maxlength="8" value="{{number}}" bindchange="numberChange" />
+    </view>
+    <view class="general">
+        <view class="icon">
+            <image src="{{list[3].icon}}" />
+        </view>
+        <view class="text">{{list[3].title}}</view>
+    </view>
+    <view class="wrap" hidden="{{confirmFrameShow}}">
+        <video class="upVideo" hidden="{{!FileUrl}}" src="{{FileUrl}}" show-center-play-btn="{{false}}"></video>
+        <view class="add" bindtap="chooseVideo">
+            <view>
+                <image src="{{add}}" />
+            </view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="upLoad" bindtap="upLoadVideo">{{changeOr}}</view>
+</view>
+<view class="confirmFrame" hidden="{{!confirmFrameShow}}" style="background-image:url({{confirmFrame}})">
+    <view class="confirmFrame_content">
+        <view class="txt">{{confirmFrame_content}}</view>
+        <view class="txt">{{confirmFrame_content2}}</view>
+    </view>
+    <view class="yesOrNo">
+        <view class="yes" bindtap="yes" style="background-image:url({{yesOrNo}})">是</view>
+        <view class="no" bindtap="cancle" style="background-image:url({{yesOrNo}})">否</view>
+    </view>
+    <view class="close" bindtap="cancle">
+        <image src="{{close}}" />
+    </view>
+</view>
+<view class="blackCurtain" hidden="{{!confirmFrameShow}}"></view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

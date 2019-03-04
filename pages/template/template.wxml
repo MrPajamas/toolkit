@@ -1,0 +1,30 @@
+<!-- tabBar -->
+<template name="tabbar">
+  <view class="tabbar_box">
+    <block wx:for="{{tabbar}}" wx:for-item="item" wx:key="index">
+      <!-- <view class="tabbar_nav" wx:if="{{item.selected}}" style="width:{{1/tabbar.length*100}}%;background-color:{{item.selected ? item.SelectedBackground : '#404040'}}" open-type="redirect">
+                <image class="tabbar_icon" src="{{item.Icon}}"></image>
+                <text>{{item.Title}}</text>
+            </view> -->
+      <view bindtap='navClick' class="tabbar_nav" data-url="{{item.PageUrl}}" url="{{item.PageUrl}}" style="width:{{1/tabbar.length*100}}%;background-color:{{item.selected ? item.SelectedBackground : '#404040'}}"   data-opentype="redirect" >
+        <image class="tabbar_icon" src="{{item.Icon}}"></image>
+        <text>{{item.Title}}</text>
+      </view>
+    </block>
+  </view>
+</template>
+<!-- videoWall和 articleShow 页面的tabbar -->
+<template name="ptabbar">
+  <view class="tabbar_box">
+    <block wx:for="{{tabbar}}" wx:for-item="item" wx:key="index">
+      <view bindtap='navClick' class="tabbar_nav" data-url="{{item.PageUrl}}" url="{{registerUrl}}" wx:if="{{!IsRegister}}" style="width:{{1/tabbar.length*100}}%;background-color:{{item.selected ? item.SelectedBackground : '#404040'}}">
+        <image class="tabbar_icon" src="{{item.Icon}}"></image>
+        <text>{{item.Title}}</text>
+      </view>
+      <view bindtap='navClick' wx:else class="tabbar_nav" data-url="{{item.PageUrl}}" url="{{item.PageUrl}}" style="width:{{1/tabbar.length*100}}%;background-color:{{item.selected ? item.SelectedBackground : '#404040'}}" data-opentype="redirect">
+        <image class="tabbar_icon" src="{{item.Icon}}"></image>
+        <text>{{item.Title}}</text>
+      </view>
+    </block>
+  </view>
+</template>

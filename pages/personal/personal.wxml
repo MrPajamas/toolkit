@@ -1,0 +1,47 @@
+<view class="container" style="background-image:url({{background}})">
+    <view class="buttons">
+        <view data-url="{{item.url}}" bindtap='navClick' hover-class="none" class="buttons_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{buttonBg}})">
+            <view class="buttons_item_icon">
+                <image src="{{item.icon}}" />
+            </view>
+            <view class="buttons_item_text">{{item.text}}</view>
+        </view>
+    </view>
+</view>
+<view class="rule" bindtap="showRule" style="background-image:url({{ruleBg}})">规则</view>
+<view class="ruleFrame" hidden="{{!showRuleFrame}}" style="background-image:url({{ruleFrame}})">
+    <view class="ruleTitle">{{rule.ruleTitle}}</view>
+    <view class="main">
+        <view class="general bold">{{rule.title1}}</view>
+        <view class="general">{{rule.title2}}</view>
+        <view class="r4">
+            <view class="line">
+                <image src="{{line}}" />
+            </view>
+            <view class="right">
+                <view class="general" wx:for="{{rule.list1}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+        <view class="general bold">{{rule.title3}}</view>
+        <view class="general" wx:for="{{rule.list2}}" wx:key="{{index}}">
+            <!-- 非正常 -->
+            <block wx:if="{{item.color}}">
+                <text class="bold">{{item.num}}</text>
+                <block wx:for="{{item.content}}" wx:key="{{index}}">
+                    <text style="color:{{ index == place ? color : '' }}">{{item}}</text>
+                </block>
+            </block>
+            <!-- 正常 -->
+            <block wx:else>
+                <text class="bold">{{item.num}}</text>
+                {{item.content}}
+            </block>
+        </view>
+        <view class="bottomText">{{rule.title4}}</view>
+    </view>
+    <view class="ruleClose" bindtap="ruleClose">
+        <image src="{{close}}" />
+    </view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

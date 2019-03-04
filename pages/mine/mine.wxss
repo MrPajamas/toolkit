@@ -1,0 +1,111 @@
+page{
+    background-color: #ececec;
+}
+image{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+}
+.banner{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+
+
+.person{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30rpx;
+    left: 60rpx;
+    width: auto;
+}
+
+.who{
+    width: 130rpx;
+    height: 130rpx;
+    margin-right: 20rpx;
+}
+
+
+.data{
+    
+    color: #fff;
+    font-size: 24rpx;
+}
+.data .name{
+    margin-bottom: 20rpx;
+}
+.data .point{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data .point .v{
+    width: 41rpx;
+    height: 40rpx;
+   
+}
+
+.data .point .number{
+    margin: 0 10rpx;
+}
+.data .point .text{
+    white-space: nowrap;
+}
+.signIn{
+    width: 145rpx;
+    height: 52rpx;
+    background-color: #fff;
+    position: absolute;
+    right: 28rpx;
+    top: 43rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 52rpx;
+    font-size: 24rpx;
+    color: #404040;
+}
+
+
+.menu{
+    margin-top: 55rpx;
+}
+.menu .menu_item{
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 56rpx 0 62rpx;
+    border-bottom: 1rpx solid #ccc;
+}
+.menu .menu_item .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    color: #3d3d3d;
+}
+.menu .menu_item .left .icon{
+    width: 33rpx;
+    height: 33rpx;
+    margin-right: 35rpx;
+
+}
+.menu .menu_item .right{
+    width: 15rpx;
+    height: 28rpx;
+}
+

@@ -1,0 +1,174 @@
+image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+    background-size: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 324rpx;
+}
+
+.scroll {
+    height: 85vh;
+    position: absolute;
+    top: 0rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.videoBox {
+    width: 690rpx;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video_item {
+    width: 330rpx;
+    height: 365rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 20rpx;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.video_item_inner {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10rpx 10rpx 0;
+    position: relative;
+}
+
+.num {
+    max-width: 110rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.play {
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.videoData {
+    display: flex;
+    width: 100%;
+    height: 70rpx;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    background-color: #000;
+}
+
+.videoData .name {
+    font-size: 24rpx;
+    max-width: 100rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.personBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personIcon {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10rpx;
+}
+
+.laud {
+    font-size: 24rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5rpx;
+}
+
+.laud .heart {
+    width: 39rpx;
+    height: 34rpx;
+    margin-right: 5rpx;
+}
+
+.buttons {
+    width: 670rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.rank,
+.upload {
+    width: 323rpx;
+    height: 71rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    line-height: 71rpx;
+    background-color: transparent!important;
+    font-size: 36rpx;
+}
+.upload{
+    margin-left: 50rpx;
+}
+
+.upload::after,
+.upload::before {
+    background-color: transparent!important;
+    border: none;
+}
+
+.empty {
+    color: #fff;
+    text-align: center;
+}
+.wall{
+    color: #fff;
+    text-align: center;
+    margin: 20rpx 0;
+}
