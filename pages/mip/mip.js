@@ -30,7 +30,7 @@ app.ARCPage({
                 wx.hideLoading();
             })
 
-
+            console.log(1123);
 
 
     },
