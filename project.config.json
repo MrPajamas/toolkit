@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 19,
 			"list": [
 				{
 					"id": 0,
@@ -149,6 +149,12 @@
 					"name": "articleContent",
 					"pathName": "pages/articleContent/articleContent",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mip",
+					"pathName": "pages/mip/mip",
+					"scene": null
 				}
 			]
 		}

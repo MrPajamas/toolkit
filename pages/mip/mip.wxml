@@ -1,2 +1,27 @@
-<!--pages/mip/mip.wxml-->
-<text>pages/mip/mip.wxml</text>
+<view class="container">
+    <view class="banner" style="background-image:url({{banner}})">
+        <view class="title">
+            <view class="blueLine_left">
+                <image src="{{ blueLine_left}}" />
+            </view>
+            <view class="text">MIP 钻石店员作品墙</view>
+            <view class="blueLine_right">
+                <image src="{{blueLine_right}}" />
+            </view>
+        </view>
+        <view class="tabs">
+            <view class="tab-btn" bindtap="switch" data-tabswitch="1" style="background-image:url({{tabswitch == 1 ? tab_bg : tab_grayBg}})">
+                本期活动
+            </view>
+            <view class="tab-btn" bindtap="switch" data-tabswitch="2" style="background-image:url({{tabswitch == 1 ? tab_grayBg : tab_bg}})">
+                往期活动
+            </view>
+        </view>
+    </view>
+    <view class="middleBanner" style="background-image:url({{middleBanner}})">
+        <view class="detail" style="background-image:url({{detail}})">更多详情 ></view>
+    </view>
+    <scroll-view class="currentVideo" scroll-y="{{true}}"></scroll-view>
+</view>
+<import src="../template/template.wxml" />
+<template is="tabbar" data="{{tabbar}}" />

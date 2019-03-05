@@ -7,13 +7,31 @@ app.ARCPage({
      * 页面的初始数据
      */
     data: {
+        banner: UrlBase + 'image/mip/banner.jpg',
+        blueLine_left: UrlBase + 'image/mip/blueLine_left.png',
+        blueLine_right: UrlBase + 'image/mip/blueLine_right.png',
+        tab_bg: UrlBase + 'image/mip/tab_bg.png',
+        tab_grayBg: UrlBase + 'image/mip/tab_grayBg.png',
+        middleBanner: UrlBase + 'image/mip/middleBanner.jpg',
+        detail: UrlBase + 'image/mip/detail.png',
 
+
+        // tab
+        tabswitch: 1
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.showLoading({ mask: true });
+        Promise.all([maconfig.getTabBarData(app),])
+            .then(res => {
+                wx.hideLoading();
+            })
+
+
+
 
     },
 
@@ -45,24 +63,16 @@ app.ARCPage({
 
     },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
 
+    },
+    //tab切换
+    switch(e) {
+        let tabswitch = e.currentTarget.dataset.tabswitch;
+        this.setData({ tabswitch });
     }
 })
