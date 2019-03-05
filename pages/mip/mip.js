@@ -29,10 +29,6 @@ app.ARCPage({
             .then(res => {
                 wx.hideLoading();
             })
-
-            console.log(43546346);
-
-
     },
 
     /**
