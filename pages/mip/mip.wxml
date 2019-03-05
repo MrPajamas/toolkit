@@ -21,7 +21,33 @@
     <view class="middleBanner" style="background-image:url({{middleBanner}})">
         <view class="detail" style="background-image:url({{detail}})">更多详情 ></view>
     </view>
-    <scroll-view class="currentVideo" wx:if="{{tabswitch == 1}}" scroll-y="{{true}}"></scroll-view>
+    <scroll-view class="currentVideo" wx:if="{{tabswitch == 1}}" bindscrolltolower="getMore" scroll-y="{{true}}">
+        <view class="videoBox">
+            <view class="video_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
+                <view class="video_item_inner">
+                    <view class="video" bindtap="goVideoPlay" data-id="{{item.Id}}" data-ispraise="{{item.IsPraise}}" data-fileurl="{{item.FileUrl}}" data-praisecnt="{{item.PraiseCnt}}" data-douyinid="{{item.DouYinId}}" data-title="{{item.Title}}">
+                        <view class="play">
+                            <image src="{{play}}" />
+                        </view>
+                    </view>
+                    <view class="videoData" style="background-image:url({{shadow}})">
+                        <view class="personBox">
+                            <view class="personIcon">
+                                <image src="{{item.AvataUrl}}" />
+                            </view>
+                            <view class="name">{{item.TrueName}}</view>
+                        </view>
+                        <view class="laud" data-index="{{index}}" data-id="{{item.Id}}">
+                            <view class="heart">
+                                <image src="{{item.IsPraise ?redHeart : grayHeart }}" />
+                            </view>
+                            <view class="num">{{item.PraiseCnt}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
     <view class="pastVideo" wx:else>2</view>
 </view>
 <import src="../template/template.wxml" />

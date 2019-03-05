@@ -1,5 +1,5 @@
 <view class="container">
-    <video src="{{fileurl}}" controls bindplay="videoStart" bindended="videoEnd"></video>
+    <video src="{{fileurl}}" controls bindplay="videoStart"></video>
     <view class="data">
         <view class="title">视频名称：{{title}}</view>
         <view class="line"></view>
