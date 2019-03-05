@@ -26,6 +26,9 @@
     "pages/videoPlay/videoPlay",
     "pages/articleContent/articleContent",
 
+
+    "pages/mip/mip",
+
     "pages/template/template",
     "pages/webview/webview"
   ],
