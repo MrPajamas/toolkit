@@ -21,7 +21,8 @@
     <view class="middleBanner" style="background-image:url({{middleBanner}})">
         <view class="detail" style="background-image:url({{detail}})">更多详情 ></view>
     </view>
-    <scroll-view class="currentVideo" scroll-y="{{true}}"></scroll-view>
+    <scroll-view class="currentVideo" wx:if="{{tabswitch == 1}}" scroll-y="{{true}}"></scroll-view>
+    <view class="pastVideo" wx:else>2</view>
 </view>
 <import src="../template/template.wxml" />
 <template is="tabbar" data="{{tabbar}}" />
