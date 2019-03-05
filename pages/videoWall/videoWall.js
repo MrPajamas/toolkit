@@ -108,6 +108,7 @@ app.ARCPage({
                         IsRegister: res.Data.IsRegister,
                         IsVideo: res.Data.IsVideo
                     });
+                    // 更新点赞
                     if (!!that.data.targetId && !!app.globalData.videoPraise) {
                         that.data.list.forEach(function (item, index) {
                             if (item.Id == that.data.targetId) {

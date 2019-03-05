@@ -230,3 +230,40 @@ image {
     background-color: transparent !important;
     border: none !important;
 }
+
+.detailFrame{
+    width: 603rpx;
+    height: 593rpx;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    z-index: 200;
+    font-size: 24rpx;
+}
+.detailFrame .text{
+    width: 387rpx;
+    margin: 320rpx auto 0;
+}
+.detailFrame .text2{
+    margin: 20rpx auto 0;
+    width: 400rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.detailFrame .text2 .time{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+.ruleClose {
+    width: 53rpx;
+    height: 52rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60rpx;
+}

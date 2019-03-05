@@ -20,11 +20,16 @@ app.ARCPage({
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
         grayHeart: UrlBase + 'image/videoWall/grayHeart.png',
         button: UrlBase + 'image/question/invitation.png',
-        module:'活动',
-        // tab
+        detailFrame: UrlBase + 'image/mip/detailFrame.png',
+        time: UrlBase + 'image/mip/time.png',
+        close: mabase.UrlBase + '/image/match/close.png',
+
+        module: '活动',
+        // tab 切换
         tabswitch: 1,
 
         pages: 1,
+        detailFrameShow: false
     },
     LoginEnabled: false,
     /**
@@ -32,6 +37,23 @@ app.ARCPage({
      */
     onLoad: function (options) {
         wx.showLoading({ mask: true });
+        let that = this;
+        app.privateShare({
+            path: 'pages/videoWall/videoWall',
+            imageUrl: UrlBase + 'image/share/otherShare.png',
+            title: '我正在参加“耀出众 | Surface王者之战”，快来为我助力吧！'
+        });
+        //动态设置高度
+        let query = wx.createSelectorQuery();
+        query.selectAll('.height').boundingClientRect(rect => {
+            //屏幕高度
+            let windowHeight = wx.getSystemInfoSync().windowHeight;
+            //所有.height元素的高度和
+            let sum = rect.reduce((prev, item) => {
+                return prev + item.height;
+            }, 0);
+            that.setData({ height: windowHeight - sum - 10 });
+        }).exec();
     },
 
     /**
@@ -47,27 +69,15 @@ app.ARCPage({
     onShow: function () {
         wx.showLoading({ mask: true });
         let that = this;
-        //动态设置高度
-        let query = wx.createSelectorQuery();
-        query.selectAll('.height').boundingClientRect(rect => {
-            let windowHeight = wx.getSystemInfoSync().windowHeight;//屏幕高度
-            let sum = 0;//所有.height 元素的高度和
-            rect.forEach(item => {
-                sum += item.height;
-            })
-            that.setData({ height: windowHeight - sum - 10 });
-        }).exec();
-
-
         Promise.all([maconfig.getTabBarData(app), maconfig.getVideoWallData(1, 6), maconfig.isRegister()])
             .then(res => {
                 const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;
                 that.setData({
                     list, pageCount, pageIndex, pageSize, recordCount,
+                    IsRegister: res[2].Data.IsRegister,
                     IsVideo: res[2].Data.IsVideo,
                     pages: 1
                 });
-
                 wx.hideLoading();
             })
     },
@@ -129,6 +139,12 @@ app.ARCPage({
         ways.goVideoPlayPage(even, mabase);
     },
     goUpLoadVideo() {
-        ways.goUpLoadVideoPage(this.IsVideo, mabase);
+        ways.goUpLoadVideoPage(this.data.IsRegister, mabase);
+    },
+    isDetailFrameShow() {
+        let that = this;
+        this.setData({
+            detailFrameShow:!that.data.detailFrameShow
+        })
     }
 })
