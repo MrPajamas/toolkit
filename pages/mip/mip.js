@@ -20,6 +20,7 @@ app.ARCPage({
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
         grayHeart: UrlBase + 'image/videoWall/grayHeart.png',
         button: UrlBase + 'image/question/invitation.png',
+        module:'活动',
         // tab
         tabswitch: 1,
 
@@ -46,6 +47,18 @@ app.ARCPage({
     onShow: function () {
         wx.showLoading({ mask: true });
         let that = this;
+        //动态设置高度
+        let query = wx.createSelectorQuery();
+        query.selectAll('.height').boundingClientRect(rect => {
+            let windowHeight = wx.getSystemInfoSync().windowHeight;//屏幕高度
+            let sum = 0;//所有.height 元素的高度和
+            rect.forEach(item => {
+                sum += item.height;
+            })
+            that.setData({ height: windowHeight - sum - 10 });
+        }).exec();
+
+
         Promise.all([maconfig.getTabBarData(app), maconfig.getVideoWallData(1, 6), maconfig.isRegister()])
             .then(res => {
                 const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;

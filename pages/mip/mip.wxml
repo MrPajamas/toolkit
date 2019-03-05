@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="banner" style="background-image:url({{banner}})">
+    <view class="banner height" style="background-image:url({{banner}})">
         <view class="title">
             <view class="blueLine_left">
                 <image src="{{ blueLine_left}}" />
@@ -18,10 +18,12 @@
             </view>
         </view>
     </view>
-    <view class="middleBanner" style="background-image:url({{middleBanner}})">
+    <view class="middleBanner height" style="background-image:url({{middleBanner}})">
         <view class="detail" style="background-image:url({{detail}})">更多详情 ></view>
     </view>
-    <scroll-view class="currentVideo" wx:if="{{tabswitch == 1}}" bindscrolltolower="getMore" scroll-y="{{true}}">
+    <scroll-view class="currentVideo"
+    style="height:{{height}}px"
+    wx:if="{{tabswitch == 1}}" bindscrolltolower="getMore" scroll-y="{{true}}">
         <view class="videoBox">
             <view class="video_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
                 <view class="video_item_inner">
@@ -50,7 +52,7 @@
     </scroll-view>
     <view class="pastVideo" wx:else>2</view>
     <view class="buttons">
-        <button open-type="share" class="invitate" style="background-image:url({{button}})">邀请好友</button>
+        <button open-type="share" class="invitate height" style="background-image:url({{button}})">邀请好友</button>
         <view bindtap="goUpLoadVideo" wx:if="{{!IsVideo}}" hover-class="none" class="upload" style="background-image:url({{button}})">
             我要上传
         </view>

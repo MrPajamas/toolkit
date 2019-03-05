@@ -1,6 +1,6 @@
 <!-- tabBar -->
 <template name="tabbar">
-    <view class="tabbar_box">
+    <view class="tabbar_box height">
         <block wx:for="{{tabbar}}" wx:for-item="item" wx:key="index">
             <view bindtap='navClick' class="tabbar_nav" data-url="{{item.PageUrl}}" url="{{item.PageUrl}}" style="width:{{1/tabbar.length*100}}%;background-color:{{item.selected ? item.SelectedBackground : '#404040'}}" data-opentype="redirect">
                 <image class="tabbar_icon" src="{{item.Icon}}"></image>
