@@ -185,3 +185,39 @@ image {
     height: 34rpx;
     margin-right: 5rpx;
 }
+
+
+.buttons {
+    width: 670rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 90rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.invitate,
+.upload {
+    width: 323rpx;
+    height: 71rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    line-height: 71rpx;
+    background-color: transparent!important;
+    font-size: 36rpx;
+    border: none!important;
+}
+.upload{
+    margin-left: 50rpx;
+}
+.invitate::after,
+.upload::after,
+.upload::before {
+    background-color: transparent!important;
+    border: none!important;
+}

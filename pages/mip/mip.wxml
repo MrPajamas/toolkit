@@ -49,6 +49,12 @@
         </view>
     </scroll-view>
     <view class="pastVideo" wx:else>2</view>
+    <view class="buttons">
+        <button open-type="share" class="invitate" style="background-image:url({{button}})">邀请好友</button>
+        <view bindtap="goUpLoadVideo" wx:if="{{!IsVideo}}" hover-class="none" class="upload" style="background-image:url({{button}})">
+            我要上传
+        </view>
+    </view>
 </view>
 <import src="../template/template.wxml" />
 <template is="tabbar" data="{{tabbar}}" />

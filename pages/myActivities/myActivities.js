@@ -1,5 +1,5 @@
 const maconfig = require('../../utils/maconfig.js')
-
+import ways from '../../utils/ways'
 const mabase = require('../../utils/mabase.js')
 const app = getApp()
 app.ARCPage({
@@ -97,15 +97,9 @@ app.ARCPage({
         let id = e.currentTarget.dataset.id;
         mabase.navigateTo('/pages/articleContent/articleContent?id=' + id )
     },
-    goVideoPlay: function (e) {
+    goVideoPlay: function (even) {
         wx.showLoading({ mask: true });
-        let title = e.currentTarget.dataset.title,
-            fileurl = e.currentTarget.dataset.fileurl,
-            douyinid = e.currentTarget.dataset.douyinid,
-            praisecnt = e.currentTarget.dataset.praisecnt,
-            id = e.currentTarget.dataset.id,
-            ispraise = e.currentTarget.dataset.ispraise;
-        mabase.navigateTo('/pages/videoPlay/videoPlay?title=' + title + '&fileurl=' + fileurl + '&douyinid=' + douyinid + '&praisecnt=' + praisecnt + '&id=' + id + '&ispraise=' + ispraise)
+        ways.goVideoPlayPage(even, mabase);
     },
     previewImage: function () {
         let img = this.data.ez.FileUrl;

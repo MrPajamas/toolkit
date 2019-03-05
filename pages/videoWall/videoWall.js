@@ -1,6 +1,7 @@
 const maconfig = require('../../utils/maconfig.js')
 const mabase = require('../../utils/mabase.js')
 const { UrlBase } = require('../../utils/mabase.js')
+import ways from '../../utils/ways'
 const app = getApp()
 app.ARCPage({
 
@@ -107,13 +108,11 @@ app.ARCPage({
                         IsRegister: res.Data.IsRegister,
                         IsVideo: res.Data.IsVideo
                     });
-                    console.log(!!that.data.targetId && !!app.globalData.videoPraise);
                     if (!!that.data.targetId && !!app.globalData.videoPraise) {
                         that.data.list.forEach(function (item, index) {
                             if (item.Id == that.data.targetId) {
                                 let PraiseCnt = 'list[' + index + '].PraiseCnt';
                                 let IsPraise = 'list[' + index + '].IsPraise';
-                                console.log(app.globalData.videoPraise, app.globalData.videoIsPraise);
                                 that.setData({
                                     [PraiseCnt]: app.globalData.videoPraise,
                                     [IsPraise]: app.globalData.videoIsPraise,
@@ -155,7 +154,6 @@ app.ARCPage({
             index = e.currentTarget.dataset.index;
         maconfig.laud(id)
             .then(res => {
-                console.log(res);
                 if (res.Status == 1) {//点赞成功
                     let list2 = that.data.list;
                     list2[index].IsPraise = true;
@@ -192,18 +190,8 @@ app.ARCPage({
         wx.showLoading({ mask: true });
         maconfig.isRegister()
             .then(res => {
-                let data = res.Data;
-                if (!data.IsRegister) {//如果未注册过,跳去注册
-                    mabase.navigateTo('/pages/register/register')
-                } else if (data.IsVideo) {//如果已经上传过了
-                    wx.showToast({
-                        icon: 'none',
-                        title: '您已上传过',
-                        mask: true
-                    })
-                } else {
-                    mabase.navigateTo('/pages/upLoadVideo/upLoadVideo')
-                }
+                let IsRegister = res.Data.IsRegister;
+                ways.goUpLoadVideoPage(IsRegister, mabase);
             })
             .catch(err => {
                 wx.hideLoading();

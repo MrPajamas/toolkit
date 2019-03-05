@@ -1,6 +1,7 @@
 const maconfig = require('../../utils/maconfig.js')
 const mabase = require('../../utils/mabase.js')
 const { UrlBase } = require('../../utils/mabase.js')
+import ways from '../../utils/ways'
 const app = getApp()
 app.ARCPage({
 
@@ -18,12 +19,13 @@ app.ARCPage({
         play: UrlBase + 'image/videoWall/play.png',
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
         grayHeart: UrlBase + 'image/videoWall/grayHeart.png',
+        button: UrlBase + 'image/question/invitation.png',
         // tab
         tabswitch: 1,
 
         pages: 1,
     },
-
+    LoginEnabled: false,
     /**
      * 生命周期函数--监听页面加载
      */
@@ -52,6 +54,7 @@ app.ARCPage({
                     IsVideo: res[2].Data.IsVideo,
                     pages: 1
                 });
+
                 wx.hideLoading();
             })
     },
@@ -108,14 +111,11 @@ app.ARCPage({
                 wx.hideLoading();
             })
     },
-    goVideoPlay(e) {
+    goVideoPlay(even) {
         wx.showLoading({ mask: true });
-        let title = e.currentTarget.dataset.title,
-            fileurl = e.currentTarget.dataset.fileurl,
-            douyinid = e.currentTarget.dataset.douyinid,
-            praisecnt = e.currentTarget.dataset.praisecnt,
-            id = e.currentTarget.dataset.id,
-            ispraise = e.currentTarget.dataset.ispraise;
-        mabase.navigateTo(`/pages/videoPlay/videoPlay?title=${title}&fileurl=${fileurl}&douyinid=${douyinid}&praisecnt=${praisecnt}&id=${id}&ispraise=${ispraise}`)
+        ways.goVideoPlayPage(even, mabase);
     },
+    goUpLoadVideo() {
+        ways.goUpLoadVideoPage(this.IsVideo, mabase);
+    }
 })
