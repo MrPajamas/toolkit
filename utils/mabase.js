@@ -1,4 +1,5 @@
-const _URLBASE = 'https://msdemotoolkit.arcdmi.com/';
+// const _URLBASE = 'https://msdemotoolkit.arcdmi.com/';
+const _URLBASE = 'https://msdemotoolkit-test.arcdmi.com/';
 // const _URLBASE = 'http://api.toolkit.com/';
 //var marequest = require('marequest.js');
 /*获取当前页带参数的url*/

@@ -11,12 +11,12 @@ app.ARCPage({
      * 页面的初始数据
      */
     data: {
-        banner: UrlBase + 'image/mip/banner.jpg',
+        topBanner: UrlBase + 'image/mip/topBanner.jpg',
         blueLine_left: UrlBase + 'image/mip/blueLine_left.png',
         blueLine_right: UrlBase + 'image/mip/blueLine_right.png',
         tab_bg: UrlBase + 'image/mip/tab_bg.png',
         tab_grayBg: UrlBase + 'image/mip/tab_grayBg.png',
-        middleBanner: UrlBase + 'image/mip/middleBanner.jpg',
+        middleBanner: UrlBase + 'image/mip/banner.jpg',
         detail: UrlBase + 'image/mip/detail.png',
         play: UrlBase + 'image/videoWall/play.png',
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
@@ -24,14 +24,19 @@ app.ARCPage({
         button: UrlBase + 'image/question/invitation.png',
         detailFrame: UrlBase + 'image/mip/detailFrame.png',
         time: UrlBase + 'image/mip/time.png',
-        close: mabase.UrlBase + '/image/match/close.png',
+        close: UrlBase + '/image/match/close.png',
+        arrow: UrlBase + '/image/mip/arrow.png',
 
         module: '活动',
         // tab 切换
         tabswitch: 1,
 
         pages: 1,
-        detailFrameShow: false
+        detailFrameShow: false,
+
+        pastItemHeight: 0,
+        // slideDown: [],
+        slideIndex:''
     },
     LoginEnabled: false,
     /**
@@ -41,20 +46,28 @@ app.ARCPage({
         wx.showLoading({ mask: true });
         let that = this;
         app.privateShare({
-            path: 'pages/videoWall/videoWall',
+            path: 'pages/mip/mip',
             imageUrl: UrlBase + 'image/share/otherShare.png',
             title: '我正在参加“耀出众 | Surface王者之战”，快来为我助力吧！'
         });
         //动态设置高度
-        let query = wx.createSelectorQuery();
-        query.selectAll('.height').boundingClientRect(rect => {
+        let current = wx.createSelectorQuery();//本期
+        let past = wx.createSelectorQuery();//往期
+        current.selectAll('.height').boundingClientRect(rect => {
             //屏幕高度
             let windowHeight = wx.getSystemInfoSync().windowHeight;
             //所有.height元素的高度和
             let sum = rect.reduce((prev, item) => {
                 return prev + item.height;
             }, 0);
-            that.setData({ height: windowHeight - sum - 10 });
+            that.setData({ height: windowHeight - sum - 35 });
+        }).exec();
+        past.selectAll('.pastHeight').boundingClientRect(rect => {
+            let windowHeight = wx.getSystemInfoSync().windowHeight;
+            let sum = rect.reduce((prev, item) => {
+                return prev + item.height;
+            }, 0);
+            that.setData({ pastHeight: windowHeight - sum - 15 });
         }).exec();
     },
 
@@ -71,14 +84,21 @@ app.ARCPage({
     onShow: function () {
         wx.showLoading({ mask: true });
         let that = this;
-        Promise.all([maconfig.getTabBarData(app), maconfig2.getMipCurrentTerm(1, 6), maconfig.isRegister()])
+        Promise.all([
+            maconfig.getTabBarData(app),
+            maconfig2.getMipCurrentTerm(1, 6),
+            maconfig.isRegister(),
+            maconfig2.getMipPastTerm()
+        ])
             .then(res => {
                 const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;
+                const pastList = res[3].Data;//往期视频
                 that.setData({
                     list, pageCount, pageIndex, pageSize, recordCount,
                     IsRegister: res[2].Data.IsRegister,
                     IsVideo: res[2].Data.IsVideo,
-                    pages: 1
+                    pages: 1,
+                    pastList
                 });
                 wx.hideLoading();
             })
@@ -141,12 +161,37 @@ app.ARCPage({
         ways.goVideoPlayPage(even, mabase);
     },
     goUpLoadVideo() {
-        ways.goUpLoadVideoPage(this.data.IsRegister, mabase);
+        if (!this.data.IsRegister) {//如果未注册过,跳去注册
+            mabase.navigateTo('/pages/register/register')
+        } else {
+            mabase.navigateTo('/pages/upLoadVideo/upLoadVideo?mip=1')
+        }
     },
     isDetailFrameShow() {
         let that = this;
         this.setData({
             detailFrameShow: !that.data.detailFrameShow
         })
-    }
+    },
+    // 展开动画
+    slide(even) {
+        let index = even.currentTarget.dataset.index,
+            that = this;
+        let animation1 = wx.createAnimation();
+        let animation2 = wx.createAnimation();
+        if (this.data[`${index}`]) {//已打开 -->  关闭
+            animation1.height(0).step({ duration: 250 });
+            animation2.rotate().step({ duration: 250 });
+            that.setData({ [`${index}`]: null })
+        } else {// 打开
+            animation1.height('1150rpx').step({ duration: 250 });
+            animation2.rotate(-180).step({ duration: 250 });
+            that.setData({ [`${index}`]: true })
+        }
+        this.setData({
+            slideDown: animation1.export(),
+            arrowRotate: animation2.export(),
+            slideIndex:index
+        });
+    },
 })

@@ -1,7 +1,6 @@
 const maconfig = require('../../utils/maconfig.js')
 const mabase = require('../../utils/mabase.js')
 const { UrlBase } = require('../../utils/mabase.js')
-import ways from '../../utils/ways'
 const app = getApp()
 app.ARCPage({
 
@@ -191,8 +190,11 @@ app.ARCPage({
         wx.showLoading({ mask: true });
         maconfig.isRegister()
             .then(res => {
-                let IsRegister = res.Data.IsRegister;
-                ways.goUpLoadVideoPage(IsRegister, mabase);
+                if (!res.Data.IsRegister) {//如果未注册过,跳去注册
+                    mabase.navigateTo('/pages/register/register')
+                }  else {
+                    mabase.navigateTo('/pages/upLoadVideo/upLoadVideo')
+                }
             })
             .catch(err => {
                 wx.hideLoading();

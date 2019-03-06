@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="banner height" style="background-image:url({{banner}})">
+    <view class="banner height pastHeight" style="background-image:url({{topBanner}})">
         <view class="title">
             <view class="blueLine_left">
                 <image src="{{ blueLine_left}}" />
@@ -18,39 +18,87 @@
             </view>
         </view>
     </view>
-    <view class="middleBanner height" style="background-image:url({{middleBanner}})">
-        <view class="detail" bindtap="isDetailFrameShow" style="background-image:url({{detail}})">更多详情 ></view>
-    </view>
-    <scroll-view class="currentVideo" style="height:{{height}}px" wx:if="{{tabswitch == 1}}" bindscrolltolower="getMore" scroll-y="{{true}}">
-        <view class="videoBox">
-            <view class="video_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
-                <view class="video_item_inner">
-                    <view class="video" bindtap="goVideoPlay" data-id="{{item.Id}}" data-ispraise="{{item.IsPraise}}" data-fileurl="{{item.FileUrl}}" data-praisecnt="{{item.PraiseCnt}}" data-douyinid="{{item.DouYinId}}" data-title="{{item.Title}}">
-                        <view class="play">
-                            <image src="{{play}}" />
-                        </view>
-                    </view>
-                    <view class="videoData" style="background-image:url({{shadow}})">
-                        <view class="personBox">
-                            <view class="personIcon">
-                                <image src="{{item.AvataUrl}}" />
+    <!-- 本期 -->
+    <view class="current" wx:if="{{tabswitch == 1}}">
+        <!-- 本期 banner -->
+        <view class="middleBanner height" style="background-image:url({{middleBanner}})">
+            <view class="detail" bindtap="isDetailFrameShow" style="background-image:url({{detail}})">
+                更多详情 >
+            </view>
+        </view>
+        <scroll-view class="currentVideo" style="height:{{height}}px" bindscrolltolower="getMore" scroll-y="{{true}}">
+            <view class="videoBox">
+                <view class="video_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
+                    <view class="video_item_inner">
+                        <view class="video" bindtap="goVideoPlay" data-id="{{item.Id}}" data-ispraise="{{item.IsPraise}}" data-fileurl="{{item.FileUrl}}" data-praisecnt="{{item.PraiseCnt}}" data-douyinid="{{item.DouYinId}}" data-title="{{item.Title}}">
+                            <view class="play">
+                                <image src="{{play}}" />
                             </view>
-                            <view class="name">{{item.TrueName}}</view>
                         </view>
-                        <view class="laud" data-index="{{index}}" data-id="{{item.Id}}">
-                            <view class="heart">
-                                <image src="{{item.IsPraise ?redHeart : grayHeart }}" />
+                        <view class="videoData" style="background-image:url({{shadow}})">
+                            <view class="personBox">
+                                <view class="personIcon">
+                                    <image src="{{item.AvataUrl}}" />
+                                </view>
+                                <view class="name">{{item.TrueName}}</view>
                             </view>
-                            <view class="num">{{item.PraiseCnt}}</view>
+                            <view class="laud" data-index="{{index}}" data-id="{{item.Id}}">
+                                <view class="heart">
+                                    <image src="{{item.IsPraise ?redHeart : grayHeart }}" />
+                                </view>
+                                <view class="num">{{item.PraiseCnt}}</view>
+                            </view>
                         </view>
                     </view>
                 </view>
             </view>
-        </view>
-    </scroll-view>
-    <view class="pastVideo" wx:else>2</view>
+        </scroll-view>
+    </view>
+    <!-- 往期 -->
+    <view class="past" wx:else>
+        <view class="empty" wx:if="{{!pastList[0]}}">敬请期待</view>
+        <scroll-view class="pastVideo" style="height:{{pastHeight}}px" scroll-y="{{true}}">
+            <block wx:for="{{pastList}}" wx:key="{{index}}">
+                <!-- 往期 banner -->
+                <view class="middleBanner height" style="background-image:url({{item.BannerUrl}})">
+                    <view class="detail" bindtap="slide" data-index="{{index}}">
+                        <text>查看详情</text>
+                        <view class="arrow" animation="{{slideIndex == index ? arrowRotate : ''}}">
+                            <image src="{{arrow}}" />
+                        </view>
+                    </view>
+                </view>
+                <view class="videoBox {{slideDown.index}}" animation="{{ slideIndex == index ? slideDown :''}}">
+                    <view class="video_item" wx:for="{{item.List}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
+                        <view class="video_item_inner">
+                            <view class="video" bindtap="goVideoPlay" data-id="{{item.Id}}" data-ispraise="{{item.IsPraise}}" data-fileurl="{{item.FileUrl}}" data-praisecnt="{{item.PraiseCnt}}" data-douyinid="{{item.DouYinId}}" data-title="{{item.Title}}">
+                                <view class="play">
+                                    <image src="{{play}}" />
+                                </view>
+                            </view>
+                            <view class="videoData" style="background-image:url({{shadow}})">
+                                <view class="personBox">
+                                    <view class="personIcon">
+                                        <image src="{{item.AvataUrl}}" />
+                                    </view>
+                                    <view class="name">{{item.TrueName}}</view>
+                                </view>
+                                <view class="laud" data-index="{{index}}" data-id="{{item.Id}}">
+                                    <view class="heart">
+                                        <image src="{{item.IsPraise ? redHeart : grayHeart}}" />
+                                    </view>
+                                    <view class="num">{{item.PraiseCnt}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <!-- 按钮 -->
     <view class="buttons">
-        <button open-type="share" class="invitate height" style="background-image:url({{button}})">
+        <button open-type="share" class="invitate height pastHeight" style="background-image:url({{button}})">
             邀请好友
         </button>
         <view bindtap="goUpLoadVideo" wx:if="{{!IsVideo}}" hover-class="none" class="upload" style="background-image:url({{button}})">

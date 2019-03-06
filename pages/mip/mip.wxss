@@ -72,7 +72,6 @@ image {
     background-repeat: no-repeat;
     width: 100%;
     height: 256rpx;
-    margin-top: -40rpx;
     position: relative;
 }
 
@@ -90,15 +89,19 @@ image {
     bottom: 28rpx;
 }
 
+.current {
+    width: 100%;
+    margin: 0 auto;
+}
+
 .currentVideo {
     box-sizing: border-box;
-    width: 690rpx;
-    margin: 30rpx auto 0;
+    margin-top: 30rpx;
 }
 
 .videoBox {
     width: 690rpx;
-    margin: 0 auto ;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -231,7 +234,7 @@ image {
     border: none !important;
 }
 
-.detailFrame{
+.detailFrame {
     width: 603rpx;
     height: 593rpx;
     background-size: cover;
@@ -243,24 +246,28 @@ image {
     z-index: 200;
     font-size: 24rpx;
 }
-.detailFrame .text{
+
+.detailFrame .text {
     width: 367rpx;
     margin: 310rpx auto 0;
     line-height: 29rpx;
 }
-.detailFrame .text2{
+
+.detailFrame .text2 {
     margin: 20rpx auto 0;
     width: 400rpx;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.detailFrame .text2 .time{
+
+.detailFrame .text2 .time {
     width: 36rpx;
     height: 36rpx;
     margin-right: 10rpx;
     padding-left: 18rpx;
 }
+
 .ruleClose {
     width: 53rpx;
     height: 52rpx;
@@ -268,4 +275,45 @@ image {
     left: 50%;
     transform: translateX(-50%);
     bottom: -60rpx;
+}
+
+/* 往期视频 */
+
+.past {
+    width: 100%;
+    overflow: hidden;
+}
+
+.pastVideo {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto 0;
+}
+
+.pastVideo .videoBox {
+    width: 690rpx;
+    margin-top: 20rpx;
+    height: 0;
+    overflow: hidden;
+}
+
+.pastVideo .detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5df1f9;
+    font-size: 30rpx;
+}
+
+.pastVideo .arrow {
+    width: 47rpx;
+    height: 47rpx;
+    margin-left: 10rpx;
+}
+
+.pastVideo .video_item:first-child {
+    margin-left: 180rpx;
+}
+.empty{
+    text-align: center;
 }

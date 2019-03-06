@@ -10,12 +10,4 @@ export default class ways {
             ispraise = even.currentTarget.dataset.ispraise;
         mabase.navigateTo(`/pages/videoPlay/videoPlay?title=${title}&fileurl=${fileurl}&douyinid=${douyinid}&praisecnt=${praisecnt}&id=${id}&ispraise=${ispraise}`);
     }
-    //跳去上传视频页
-    static goUpLoadVideoPage(IsRegister,mabase) {
-        if (!IsRegister) {//如果未注册过,跳去注册
-            mabase.navigateTo('/pages/register/register')
-        }  else {
-            mabase.navigateTo('/pages/upLoadVideo/upLoadVideo')
-        }
-    }
 }

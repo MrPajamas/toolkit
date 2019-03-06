@@ -41,7 +41,7 @@ app.ARCPage({
         yesOrNo: UrlBase + 'image/upLoadVideo/yesOrNo.png',
         close: UrlBase + '/image/match/close.png',
         confirmFrame_content: '',
-        confirmFrame_content2:'',
+        confirmFrame_content2: '',
         //1为读取，否则为上传  对应yes cancle事件
         confirmFrameCode: 1
     },
@@ -57,27 +57,21 @@ app.ARCPage({
             Promise.all([maconfig.getVideo(options.id), maconfig.getTabBarData(app)])
                 .then(res => {
                     let { Title, DouYinId, DouYinPraiseCnt } = res[0].Data;
-                    // if (/w/.test(PraiseCnt)) {//带‘w’
-                    //     PraiseCnt = PraiseCnt.split('');
-                    //     PraiseCnt.splice(PraiseCnt.indexOf('w'), 1, '0000');
-                    //     PraiseCnt.splice(PraiseCnt.indexOf('.'), 1, '');
-                    //     PraiseCnt = PraiseCnt.join('');
-                    // }
-
                     that.setData({
                         changeOr: '确认更改',
                         title: Title,
                         id: DouYinId,
                         number: DouYinPraiseCnt,
                         options
-                    })
+                    });
                     wx.hideLoading();
                 })
         } else {//上传
             maconfig.getTabBarData(app)
                 .then(res => {
                     that.setData({
-                        changeOr: '立即上传'
+                        changeOr: '立即上传',
+                        options
                     })
                     wx.hideLoading();
                 })
@@ -85,10 +79,6 @@ app.ARCPage({
                     wx.hideLoading();
                 })
         }
-
-
-
-
     },
 
     /**
@@ -179,6 +169,7 @@ app.ARCPage({
             id = data.id,
             number = data.number,
             FileUrl = data.FileUrl,
+            options = data.options,
             numberTest = /^([1-9]\d*|[0]{1,1})$/;//匹配正整数和0
         //校验
         if (!title) {
@@ -216,7 +207,9 @@ app.ARCPage({
                 confirmFrame_content2: '请确认是否修改？'
             })
         } else {//第一次上传
-            up(title, id, number, FileUrl);
+            let UpData = [ title, id, number, FileUrl ];
+            if (options && options.mip) UpData.push(options.mip);//如果从mip上传的，添加标记参数
+            up(...UpData);
         }
     }
 })
@@ -266,9 +259,11 @@ function preUp(that) {
 }
 
 //上传视频
-function up(title, id, number, FileUrl) {
+function up(title, id, number, FileUrl, mip) {
     wx.showLoading({ mask: true, title: '上传中' });
-    maconfig.upLoadVideo({ Title: title, DouYinId: id, PraiseCnt: number, FileUrl })
+    let data = { Title: title, DouYinId: id, PraiseCnt: number, FileUrl };
+    if (mip) data.Phase = mip; //如果是从Mip页面进来的,添加标记参数
+    maconfig.upLoadVideo(data)
         .then(res => {
             if (res.Status == 1) {//上传成功
                 wx.showToast({
