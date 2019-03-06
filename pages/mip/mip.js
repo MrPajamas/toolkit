@@ -1,8 +1,10 @@
 const maconfig = require('../../utils/maconfig.js')
 const mabase = require('../../utils/mabase.js')
 const { UrlBase } = require('../../utils/mabase.js')
-import ways from '../../utils/ways'
 const app = getApp()
+import maconfig2 from '../../utils/maconfig2'
+import ways from '../../utils/ways'
+
 app.ARCPage({
 
     /**
@@ -69,7 +71,7 @@ app.ARCPage({
     onShow: function () {
         wx.showLoading({ mask: true });
         let that = this;
-        Promise.all([maconfig.getTabBarData(app), maconfig.getVideoWallData(1, 6), maconfig.isRegister()])
+        Promise.all([maconfig.getTabBarData(app), maconfig2.getMipCurrentTerm(1, 6), maconfig.isRegister()])
             .then(res => {
                 const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;
                 that.setData({
@@ -144,7 +146,7 @@ app.ARCPage({
     isDetailFrameShow() {
         let that = this;
         this.setData({
-            detailFrameShow:!that.data.detailFrameShow
+            detailFrameShow: !that.data.detailFrameShow
         })
     }
 })

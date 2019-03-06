@@ -244,8 +244,9 @@ image {
     font-size: 24rpx;
 }
 .detailFrame .text{
-    width: 387rpx;
-    margin: 320rpx auto 0;
+    width: 367rpx;
+    margin: 310rpx auto 0;
+    line-height: 29rpx;
 }
 .detailFrame .text2{
     margin: 20rpx auto 0;
@@ -258,6 +259,7 @@ image {
     width: 36rpx;
     height: 36rpx;
     margin-right: 10rpx;
+    padding-left: 18rpx;
 }
 .ruleClose {
     width: 53rpx;
