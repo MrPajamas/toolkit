@@ -21,11 +21,12 @@
     <!-- 本期 -->
     <view class="current" wx:if="{{tabswitch == 1}}">
         <!-- 本期 banner -->
-        <view class="middleBanner height" style="background-image:url({{middleBanner}})">
+        <view class="middleBanner height" style="background-image:url({{BannerUrl}})">
             <view class="detail" bindtap="isDetailFrameShow" style="background-image:url({{detail}})">
                 更多详情 >
             </view>
         </view>
+        <view class="empty" wx:if="{{!list[0]}}">{{exp}}</view>
         <scroll-view class="currentVideo" style="height:{{height}}px" bindscrolltolower="getMore" scroll-y="{{true}}">
             <view class="videoBox">
                 <view class="video_item" wx:for="{{list}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
@@ -71,6 +72,7 @@
                 <view class="videoBox {{slideDown.index}}" animation="{{ slideIndex == index ? slideDown :''}}">
                     <view class="video_item" wx:for="{{item.List}}" wx:key="{{index}}" style="background-image:url({{item.ImageUrl}})">
                         <view class="video_item_inner">
+                            <view class="placing" style="background-image:url({{placingBg}})">{{index + 1}}</view>
                             <view class="video" bindtap="goVideoPlay" data-id="{{item.Id}}" data-ispraise="{{item.IsPraise}}" data-fileurl="{{item.FileUrl}}" data-praisecnt="{{item.PraiseCnt}}" data-douyinid="{{item.DouYinId}}" data-title="{{item.Title}}">
                                 <view class="play">
                                     <image src="{{play}}" />
@@ -101,7 +103,7 @@
         <button open-type="share" class="invitate height pastHeight" style="background-image:url({{button}})">
             邀请好友
         </button>
-        <view bindtap="goUpLoadVideo" wx:if="{{!IsVideo}}" hover-class="none" class="upload" style="background-image:url({{button}})">
+        <view bindtap="goUpLoadVideo" wx:if="{{!IsMipVideo}}" hover-class="none" class="upload" style="background-image:url({{button}})">
             我要上传
         </view>
     </view>

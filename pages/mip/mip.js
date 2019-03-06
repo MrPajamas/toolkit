@@ -16,7 +16,7 @@ app.ARCPage({
         blueLine_right: UrlBase + 'image/mip/blueLine_right.png',
         tab_bg: UrlBase + 'image/mip/tab_bg.png',
         tab_grayBg: UrlBase + 'image/mip/tab_grayBg.png',
-        middleBanner: UrlBase + 'image/mip/banner.jpg',
+        // middleBanner: UrlBase + 'image/mip/banner.jpg',
         detail: UrlBase + 'image/mip/detail.png',
         play: UrlBase + 'image/videoWall/play.png',
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
@@ -26,6 +26,7 @@ app.ARCPage({
         time: UrlBase + 'image/mip/time.png',
         close: UrlBase + '/image/match/close.png',
         arrow: UrlBase + '/image/mip/arrow.png',
+        placingBg: UrlBase + '/image/mip/placingBg.png',
 
         module: '活动',
         // tab 切换
@@ -33,10 +34,13 @@ app.ARCPage({
 
         pages: 1,
         detailFrameShow: false,
-
+        // 往期高度
         pastItemHeight: 0,
-        // slideDown: [],
-        slideIndex:''
+        // 展开项索引
+        slideIndex: '',
+        // 展开队列
+        slideQueue: [],
+        exp: ''
     },
     LoginEnabled: false,
     /**
@@ -87,18 +91,19 @@ app.ARCPage({
         Promise.all([
             maconfig.getTabBarData(app),
             maconfig2.getMipCurrentTerm(1, 6),
-            maconfig.isRegister(),
+            maconfig2.getMipCurrentData(),
             maconfig2.getMipPastTerm()
         ])
             .then(res => {
                 const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;
+                const { BannerUrl, IsRegister, IsMipVideo } = res[2].Data;
                 const pastList = res[3].Data;//往期视频
                 that.setData({
                     list, pageCount, pageIndex, pageSize, recordCount,
-                    IsRegister: res[2].Data.IsRegister,
-                    IsVideo: res[2].Data.IsVideo,
+                    IsRegister, IsMipVideo, BannerUrl,
                     pages: 1,
-                    pastList
+                    pastList,
+                    exp: '敬请期待'
                 });
                 wx.hideLoading();
             })
@@ -118,7 +123,6 @@ app.ARCPage({
 
     },
 
-
     /**
      * 用户点击右上角分享
      */
@@ -134,7 +138,7 @@ app.ARCPage({
         wx.showLoading({ mask: true });
         let that = this,
             list = this.data.list;
-        maconfig.getVideoWallData((that.data.pages + 1), 6)
+        maconfig2.getMipCurrentTerm((that.data.pages + 1), 6)
             .then(res => {
                 let list2 = res.Data.list,
                     index = res.Data.pageIndex;
@@ -176,22 +180,27 @@ app.ARCPage({
     // 展开动画
     slide(even) {
         let index = even.currentTarget.dataset.index,
+            slideQueue = this.data.slideQueue,
+            animation1 = wx.createAnimation(),
+            animation2 = wx.createAnimation(),
             that = this;
-        let animation1 = wx.createAnimation();
-        let animation2 = wx.createAnimation();
-        if (this.data[`${index}`]) {//已打开 -->  关闭
+
+        if (slideQueue.includes(index)) {//已打开 -->  关闭
             animation1.height(0).step({ duration: 250 });
             animation2.rotate().step({ duration: 250 });
-            that.setData({ [`${index}`]: null })
+            // 关闭后移除队列
+            let i = slideQueue.indexOf(index);
+            slideQueue.splice(i, 1);
         } else {// 打开
             animation1.height('1150rpx').step({ duration: 250 });
             animation2.rotate(-180).step({ duration: 250 });
-            that.setData({ [`${index}`]: true })
+            // 展开后加入slideQueue
+            slideQueue.push(index);
         }
         this.setData({
             slideDown: animation1.export(),
             arrowRotate: animation2.export(),
-            slideIndex:index
+            slideIndex: index
         });
     },
 })
