@@ -1,8 +1,12 @@
 <view class="container">
-    <view class="banner" bindtap='navClick' data-url="/pages/match/match" hover-class="none" data-opentype="redirect">
-        <image src="{{banner}}" mode="widthFix" />
-    </view>
-    <view class="nav"  bindtap="notOpen">
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" duration="250">
+        <block wx:for="{{listBanner}}" wx:key="{{index}}">
+            <swiper-item bindtap='navClick' data-url="{{item.url}}">
+                <image src="{{item.img}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="nav" bindtap="notOpen">
         <view class="nav-container">
             <view class="nav_item" hover-class="none" url="{{item.url}}" wx:for="{{listIcon}}" wx:key="{{index}}">
                 <image src="{{item.icon}}" />
@@ -10,8 +14,7 @@
             </view>
         </view>
     </view>
- 
-    <!-- 产品 素材宝典 -->
+    <!-- 产品  -->
     <view class="part1" bindtap="notOpen">
         <view class="title">
             <view>{{product.Title}}</view>
@@ -28,6 +31,7 @@
             </view>
         </view>
     </view>
+    <!-- 素材宝典 -->
     <view class="part2" catchtap="notOpen">
         <view class="title">
             <view>{{sucai.Title}}</view>
@@ -40,6 +44,18 @@
                 <image src="{{item.img}}" />
                 <view>{{item.title}}</view>
             </view>
+        </view>
+    </view>
+    <!-- mip -->
+    <view class="part3" catchtap="notOpen">
+        <view class="title">
+            <view>{{mip.Title}}</view>
+            <view class="arrow" url="">
+                <image src="{{mip.Icon}}" />
+            </view>
+        </view>
+        <view class="content">
+            <image src="{{mip.Banner}}" />
         </view>
     </view>
 </view>

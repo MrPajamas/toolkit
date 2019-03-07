@@ -63,7 +63,7 @@ image {
     background-repeat: no-repeat;
     color: #fff;
     text-align: center;
-    padding-top: 15rpx;
+    line-height: 70rpx;
     box-sizing: border-box;
 }
 

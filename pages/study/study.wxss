@@ -1,3 +1,6 @@
+page{
+    -webkit-overflow-scrolling: touch;
+}
 .container{
     width: 100%;
     height: 100vh;
@@ -7,9 +10,14 @@
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #eeeeee;
-    padding-bottom: 100rpx;
+    /* padding-bottom: 100rpx; */
 }
 
+
+.slide-image{
+    width: 100%;
+    height: 100%;
+}
 .banner{
     width: 100%;
     height: auto;
@@ -147,6 +155,43 @@
 }
 .part2 .content .content_item view{
     font-size: 20rpx;
+}
+
+
+.part3{
+    padding: 0 34rpx 100rpx;
+    background-color: #fff;
+    margin-top: 10rpx;
+    overflow: hidden;
+    height: auto;
+}
+.part3 .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30rpx;
+    color: #0068b7;
+    font-weight: bold;
+    margin: 30rpx 0;
+}
+.part3 .arrow{
+    width: 13rpx;
+    height: 21rpx;
+}
+
+.part3 .arrow image{
+    width: 100%;
+    height: 100%;
+}
+.part3 .content{
+    width: 100%;
+    height: 200rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.part3 .content > image{
+    width: 100%;
+    height: 100%;
 }
 
 

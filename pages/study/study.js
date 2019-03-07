@@ -1,6 +1,6 @@
 const maconfig = require('../../utils/maconfig.js')
 const app = getApp()
-
+const { UrlBase } = require('../../utils/mabase.js')
 app.ARCPage({
 
     /**
@@ -39,7 +39,7 @@ app.ARCPage({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+       
     },
 
     /**

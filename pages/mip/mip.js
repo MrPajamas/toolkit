@@ -11,12 +11,12 @@ app.ARCPage({
      * 页面的初始数据
      */
     data: {
+        module: '活动',
         topBanner: UrlBase + 'image/mip/topBanner.jpg',
         blueLine_left: UrlBase + 'image/mip/blueLine_left.png',
         blueLine_right: UrlBase + 'image/mip/blueLine_right.png',
         tab_bg: UrlBase + 'image/mip/tab_bg.png',
         tab_grayBg: UrlBase + 'image/mip/tab_grayBg.png',
-        // middleBanner: UrlBase + 'image/mip/banner.jpg',
         detail: UrlBase + 'image/mip/detail.png',
         play: UrlBase + 'image/videoWall/play.png',
         redHeart: UrlBase + 'image/videoWall/redHeart.png',
@@ -28,7 +28,6 @@ app.ARCPage({
         arrow: UrlBase + '/image/mip/arrow.png',
         placingBg: UrlBase + '/image/mip/placingBg.png',
 
-        module: '活动',
         // tab 切换
         tabswitch: 1,
 
@@ -47,6 +46,9 @@ app.ARCPage({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+      
+
         wx.showLoading({ mask: true });
         let that = this;
         app.privateShare({

@@ -161,9 +161,9 @@ function getStudyData() {
             complete: function (res) {
                 const currentPages = getCurrentPages(),
                     _this = currentPages[currentPages.length - 1];
-                const { banner, listIcon, product, sucai } = res.Data;
+                const { banner, listBanner, listIcon, product, sucai, mip } = res.Data;
                 _this.setData({
-                    banner, listIcon, product, sucai
+                    banner, listBanner, listIcon, product, sucai, mip
                 });
                 res && resolve(res);
             }
