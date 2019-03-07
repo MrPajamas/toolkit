@@ -46,9 +46,6 @@ app.ARCPage({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
-      
-
         wx.showLoading({ mask: true });
         let that = this;
         app.privateShare({
@@ -97,14 +94,8 @@ app.ARCPage({
             maconfig2.getMipPastTerm()
         ])
             .then(res => {
-                const { list, pageCount, pageIndex, pageSize, recordCount } = res[1].Data;
-                const { BannerUrl, IsRegister, IsMipVideo } = res[2].Data;
-                const pastList = res[3].Data;//往期视频
                 that.setData({
-                    list, pageCount, pageIndex, pageSize, recordCount,
-                    IsRegister, IsMipVideo, BannerUrl,
                     pages: 1,
-                    pastList,
                     exp: '敬请期待'
                 });
                 wx.hideLoading();

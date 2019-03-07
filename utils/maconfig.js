@@ -13,6 +13,8 @@ function isRegister() {
         })
     })
 }
+
+
 // Register页面 数据
 function getRegisterData() {
     return new Promise(resolve => {
@@ -31,20 +33,8 @@ function getRegisterData() {
 }
 
 
-// // 获取验证码
-// function getCode(TrueName, Mobile) {
-//     return new Promise(resolve => {
-//         marequest.request({
-//             url: 'api/Users/SendCode',
-//             enableUserInfo: true,
-//             data: { TrueName, Mobile },
-//             complete: function (res) {
-//                 res && resolve(res);
-//             }
-//         })
-//     })
-// }
-// 获取验证码
+
+// 获取门店 
 function getStore(TrueName, Mobile) {
     return new Promise(resolve => {
         marequest.request({
@@ -649,5 +639,5 @@ module.exports = {
     getPeopleRule,
     getArticleContent,
     getVideo,
-    uploadSee
+    uploadSee,
 }

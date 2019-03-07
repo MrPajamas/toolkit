@@ -1,6 +1,6 @@
 // 二期接口
 const marequest = require('marequest.js');
-
+import ways from './ways'
 
 export default class maconfig2 {
     //mip 本期 banner
@@ -10,7 +10,10 @@ export default class maconfig2 {
                 url: 'api/Upload/GetMipConfig',
                 enableUserInfo: true,
                 complete(res) {
-                    res && resolve(res);
+                    if(res && res.Data){
+                        ways.setData(res.Data);
+                        resolve(res);
+                    }
                 }
             })
         })
@@ -23,7 +26,10 @@ export default class maconfig2 {
                 enableUserInfo: true,
                 data: { pageIndex, pageSize, Phase: 1 },
                 complete(res) {
-                    res && resolve(res);
+                    if(res && res.Data){
+                        ways.setData(res.Data);
+                        resolve(res);
+                    }
                 }
             })
         })
@@ -35,7 +41,10 @@ export default class maconfig2 {
                 url: 'api/Home/GetPastPeriodVideoList',
                 enableUserInfo: true,
                 complete(res) {
-                    res && resolve(res);
+                    if(res && res.Data){
+                        ways.setData(res.Data,'pastList');
+                        resolve(res);
+                    }
                 }
             })
         })

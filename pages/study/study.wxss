@@ -10,7 +10,6 @@ page{
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #eeeeee;
-    /* padding-bottom: 100rpx; */
 }
 
 
@@ -50,7 +49,7 @@ page{
     background-color: #fff;
 }
 .nav .nav-container{
-    width: 600rpx;
+    width: 685rpx;
     height: 145rpx;
     margin: 0 auto;
     display: flex;
